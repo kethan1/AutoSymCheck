@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Symptom Checker</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/datasets/symptoms.js"></script>
+    <script src="/static/js/datasets/diseases.js"></script>
+    <script src="/static/js/init.js"></script>
+    <link rel="icon" type="image/png" href="/static/images/favicon.png"/>
+</head>
+<body>
+    <div id="app">
+        <h3 style="text-align: center">Symptom Checker</h3>
+        <br>
+        <br>
+        <div id="appMain">
+            <h5>Please Agree to These Terms and Conditions:</h5>
+            <div class="row">
+                <div class="col s2">
+                    <div>
+                        <ul>
+                            <li class="current_screen">Terms and Conditions</li>
+                            <li class="not_current_screen">Patient Info</li>
+                            <li class="not_current_screen">Symptoms</li>
+                            <li class="not_current_screen">Diseases</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col s8">
+                    <br>
+                    <ul style="display: table; margin: 0 auto;" class="browser-default">
+                        <li>This is not a replacement for doctors.</li>
+                        <li>This app may not be accurate.</li>
+                        <li>Please accurately enter your symptoms.</li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <label style="text-align: center;">
+                <input type="checkbox" class="filled-in" />
+                <span>I understand</span>
+            </label>
+            <br>
+            <br>
+            <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn">Back</button>
+            <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn disabled" onclick="moveToPage(2)">Next</button>
+            <script>
+                var checkbox = document.querySelector("input[type=checkbox]");
+
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) document.getElementById("next").classList.remove("disabled");
+                    else document.getElementById("next").classList.add("disabled");
+                });
+            </script>
+        </div>
+    </div>
+    <script>
+        function moveToPage(pageNum) {
+            var appMainDiv = document.getElementById("appMain");
+            var setInnerHTML = function(elm, html) {
+                elm.innerHTML = html;
+                Array.from(elm.querySelectorAll("script")).forEach( oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes)
+                    .forEach( attr => newScript.setAttribute(attr.name, attr.value) );
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
+            }
+            if (!String.format) {
+                String.format = function(format) {
+                    var args = Array.prototype.slice.call(arguments, 1);
+                    return format.replace(/{(\d+)}/g, function(match, number) { 
+                    return typeof args[number] != 'undefined'
+                        ? args[number] 
+                        : match
+                    ;
+                    });
+                };
+            }
+            if (!String.capitalizeFirstLetter) {
+                String.capitalizeFirstLetter = function(string) {
+                    return string.charAt(0).toUpperCase() + string.slice(1);
+                }
+            }
+            if (pageNum == 1) {
+                window.pageNum = 1
+                
+                setInnerHTML(appMainDiv, `
+                    <h5>Please Agree to These Terms and Conditions:</h5>
+                    <div class="row">
+                        <div class="col s2">
+                            <div>
+                                <ul>
+                                    <li class="current_screen">Terms and Conditions</li>
+                                    <li class="not_current_screen">Patient Info</li>
+                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Diseases</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col s8">
+                            <br>
+                            <ul style="display: table; margin: 0 auto;" class="browser-default">
+                                <li>This is not a replacement for doctors.</li>
+                                <li>This app may not be accurate.</li>
+                                <li>Please accurately enter your symptoms.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br>
+                    <label style="text-align: center;">
+                        <input type="checkbox" class="filled-in" />
+                        <span>I understand</span>
+                    </label>
+                    <br>
+                    <br>
+                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn">Back</button>
+                    <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn disabled" onclick="moveToPage(2)">Next</button>
+                    <script>
+                        var checkbox = document.querySelector("input[type=checkbox]");
+                        
+                        checkbox.addEventListener('change', function() {
+                            if (this.checked) document.getElementById("next").classList.remove("disabled");
+                            else document.getElementById("next").classList.add("disabled");
+                        });
+                    <\/script>
+                `)
+            } else if (pageNum == 2) {
+                window.pageNum = 2
+                setInnerHTML(appMainDiv, `
+                    <h5>Enter Your Age and Gender</h5>
+                    <div style="text-align: center" class="row">
+                        <div class="col s2">
+                            <div>
+                                <ul>
+                                    <li class="not_current_screen">Terms and Conditions</li>
+                                    <li class="current_screen">Patient Info</li>
+                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Diseases</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <p id="age_show">Age: 18</p>
+                            <p style="width: 80%; text-align: center" class="range-field">
+                                <input type="range" id="ageRange" min="0" max="80" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+                            </p>
+                        </div>
+                        <div class="col s4">
+                            <p>
+                                <label>
+                                    <input id="maleGenderRadioButton" name="gender" type="radio" onchange="changeGender('male')" />
+                                    <span>Male</span>
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <input id="femaleGenderRadioButton" name="gender" type="radio" onchange="changeGender('female')" />
+                                    <span>Female</span>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <button style="margin-right: 25%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(1)">Back</button>
+                    <button style="margin-left: 25%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(3)">Next</button>
+                    <script>
+                        document.getElementById("ageRange").value = age
+                        document.getElementById("age_show").innerHTML = String.format('Age: {0}', age);
+                        if (gender == "male") {
+                            document.getElementById("maleGenderRadioButton").checked = true
+                        } else {
+                            document.getElementById("femaleGenderRadioButton").checked = true
+                        }
+                        function showVal(newAge) {
+                            document.getElementById("age_show").innerHTML = String.format('Age: {0}', newAge);
+                            age = parseInt(newAge)
+                        }  
+                        function changeGender(newGender) {
+                            gender = newGender
+                        }
+                    <\/script>
+                `);
+            } else if (pageNum == 3) {
+                setInnerHTML(appMainDiv, `
+                    <h5>Please check all the statements below that apply to you</h5>
+                    <div style="text-align: center" class="row">
+                        <div class="col s2">
+                            <div>
+                                <ul>
+                                    <li class="not_current_screen">Terms and Conditions</li>
+                                    <li class="current_screen">Patient Info</li>
+                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Diseases</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col s8">
+                            <br>
+                            <div id="overweight">
+                                <span style="font-size: 1.5vw">I am overweight</span>
+                                <label>
+                                    <input id="overweight1" name="overweight" type="radio" onclick="changeData('overweight', 'Yes')" />
+                                    <span>Yes</span>
+                                </label>
+                                <label>
+                                    <input id="overweight2" name="overweight" type="radio" onclick="changeData('overweight', 'No')" />
+                                    <span>No</span>
+                                </label>
+                                <label>
+                                    <input id="overweight3" name="overweight" type="radio" onclick="changeData('overweight', 'Unknown')" />
+                                    <span>I don't know</span>
+                                </label>
+                            </div>
+                            <br>
+                            <div id="smoking">
+                                <span style="font-size: 1.5vw">I smoke cigarettes</span>
+                                <label>
+                                    <input id="cigarettes1" name="cigarettes" type="radio" onclick="changeData('cigarettes', 'Yes')" />
+                                    <span>Yes</span>
+                                </label>
+                                <label>
+                                    <input id="cigarettes2" name="cigarettes" type="radio" onclick="changeData('cigarettes', 'No')" />
+                                    <span>No</span>
+                                </label>
+                                <label>
+                                    <input id="cigarettes3" name="cigarettes" type="radio" onclick="changeData('cigarettes', 'Unknown')" />
+                                    <span>I don't know</span>
+                                </label>
+                            </div>
+                            <br>
+                            <div id="injury">
+                                <span style="font-size: 1.5vw">I have been recently injured.</span>
+                                <label>
+                                    <input id="injury1" name="injury" type="radio" onclick="changeData('injury', 'Yes')" />
+                                    <span>Yes</span>
+                                </label>
+                                <label>
+                                    <input id="injury2" name="injury" type="radio" onclick="changeData('injury', 'No')" />
+                                    <span>No</span>
+                                </label>
+                                <label>
+                                    <input id="injury3" name="injury" type="radio" onclick="changeData('injury', 'Unknown')" />
+                                    <span>I don't know</span>
+                                </label>
+                            </div>
+                            <br>
+                            <div id="cholesterol">
+                                <span style="font-size: 1.5vw">I have high cholesterol.</span>
+                                <label>
+                                    <input id="cholesterol1" name="cholesterol" type="radio" onclick="changeData('cholesterol', 'Yes')" />
+                                    <span>Yes</span>
+                                </label>
+                                <label>
+                                    <input id="cholesterol2" name="cholesterol" type="radio" onclick="changeData('cholesterol', 'No')" />
+                                    <span>No</span>
+                                </label>
+                                <label>
+                                    <input id="cholesterol3" name="cholesterol" type="radio" onclick="changeData('cholesterol', 'Unknown')" />
+                                    <span>I don't know</span>
+                                </label>
+                            </div>
+                            <br>
+                            <div id="hypertension">
+                                <span style="font-size: 1.5vw">I have hypertension</span>
+                                <label>
+                                    <input id="hypertension1" name="hypertension" type="radio" onclick="changeData('hypertension', 'Yes')" />
+                                    <span>Yes</span>
+                                </label>
+                                <label>
+                                    <input id="hypertension2" name="hypertension" type="radio" onclick="changeData('hypertension', 'No')" />
+                                    <span>No</span>
+                                </label>
+                                <label>
+                                    <input id="hypertension3" name="hypertension" type="radio" onclick="changeData('hypertension', 'Unknown')" />
+                                    <span>I don't know</span>
+                                </label>
+                            </div>
+                            <br>
+                            <div id="diabetes">
+                                <span style="font-size: 1.5vw">I have diabetes</span>
+                                <label>
+                                    <input id="diabetes1" name="diabetes" type="radio" onclick="changeData('diabetes', 'Yes')" />
+                                    <span>Yes</span>
+                                </label>
+                                <label>
+                                    <input id="diabetes2" name="diabetes" type="radio" onclick="changeData('diabetes', 'No')" />
+                                    <span>No</span>
+                                </label>
+                                <label>
+                                    <input id="diabetes3" name="diabetes" type="radio" onclick="changeData('diabetes', 'Unknown')" />
+                                    <span>I don't know</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <button style="margin-right: 25%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(2)">Back</button>
+                    <button style="margin-left: 25%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(4)" disabled>Next</button>
+                    <script>
+                        for (let each in otherInfo) {
+                            if (otherInfo[each] !== null) {
+                                if (otherInfo[each] === "Yes") {
+                                    document.getElementById(String.format("{0}1", each)).checked = true
+                                } else if (otherInfo[each] == "No") {
+                                    document.getElementById(String.format("{0}2", each)).checked = true
+                                } else {
+                                    document.getElementById(String.format("{0}3", each)).checked = true
+                                }
+                            }
+                            
+                        }
+                        var canContinue = true
+                        for (let each in otherInfo) {
+                            if (otherInfo[each] === null) {
+                                canContinue = false;
+                            }
+                        }
+                        if (canContinue) {
+                            document.getElementById("next").disabled = false
+                        } else {
+                            document.getElementById("next").disabled = true
+                        }
+
+                        function changeData(whichData, changeTo) {
+                            if (changeTo != "Unknown") {
+                                otherInfo[whichData] = changeTo
+                            } else {
+                                otherInfo[whichData] = "Patient doesn't know"
+                            }
+                            
+                            var canContinue = true
+                            for (let each in otherInfo) {
+                                if (otherInfo[each] === null) {
+                                    canContinue = false;
+                                }
+                            }
+                            if (canContinue) {
+                                document.getElementById("next").disabled = false
+                            } else {
+                                document.getElementById("next").disabled = true
+                            }
+                        }
+                        
+                    <\/script>
+                `);
+            } else if (pageNum == 4) {
+                setInnerHTML(appMainDiv, `
+                    <div style="text-align: center" class="row">
+                        <div class="col s2">
+                            <div>
+                                <ul>
+                                    <li class="not_current_screen">Terms and Conditions</li>
+                                    <li class="not_current_screen">Patient Info</li>
+                                    <li class="current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Diseases</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col s5">
+                            <div id="symptomsList" style="height: 60vh; overflow-y: scroll; width: 30vw; text-align: center"></div>
+                        </div>
+                        <div class="col s5" id="divChips"></div>
+                    </div>   
+                    <br>
+                    <br>
+                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(3)">Back</button>
+                    <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(5)">Next</button>     
+                    <script>
+                        var divChips = document.getElementById("divChips");
+                        function AddChip(symptom, bypass=false) {
+                            if (!bypass) {
+                                if (!currentSymptoms.includes(symptom)) {
+                                    divChips.innerHTML += String.format("<div class='chip'>"+symptom+"<i class='close material-icons' onclick='removeSymptom(String(/{0}/).substring(1).slice(0,-1))'>close</i></div>", symptom)
+                                    currentSymptoms.push(symptom)
+                                }
+                            } else {
+                                divChips.innerHTML += String.format("<div class='chip'>"+symptom+"<i class='close material-icons' onclick='removeSymptom(String(/{0}/).substring(1).slice(0,-1))'>close</i></div>", symptom)
+                            }  
+                        }
+
+                        function removeSymptom(symptom) {
+                            if (currentSymptoms.includes(symptom)) {
+                                currentSymptoms = currentSymptoms.filter(item => item !== symptom)
+                            }
+                        }
+                        var symptomsList = document.getElementById("symptomsList");
+                        var toInsert = "";
+                        for (let symptom of Symptoms) toInsert += String.format("<p style='margin: 0; padding-top: 0;' onclick='AddChip(String(/{0}/).substring(1).slice(0,-1))'>{0}</p>", symptom)
+                        for (let each_currentSymptoms of currentSymptoms) AddChip(each_currentSymptoms, bypass=true)
+                        symptomsList.innerHTML = toInsert
+                    <\/script>
+                `)
+            } else if (pageNum == 5) {
+                function possible_disease_function(arr1, arr2) {
+                    let empty_array = [];
+                    for (let i = 0; i < arr1.length; i++) {
+                        for (let n = 0; n < arr2.length; n++) {
+                            if (arr1[i] === arr2[n]) {
+                                empty_array = [...empty_array, arr1[i]];
+                            }
+                        }
+                    }
+                    return empty_array;
+                };
+
+                function get_possible_disease () {
+                    let all_objects = [];
+                    Object.keys(diseases).map((key) => {
+                        let array1 = [...diseases[key]];
+                        let array1_sliced = array1.slice(0, -1)
+                        let array2 = currentSymptoms;
+                        let empty_array = possible_disease_function(array1_sliced, array2);
+                        let possbility = ((empty_array.length / array1_sliced.length) * 100).toFixed(2);
+                        let object = {
+                            name: key,
+                            possibility: possbility,
+                            disease_symptom: diseases[key],
+                            symptom_user_has: empty_array,
+                        };
+                        return (all_objects = [...all_objects, object]);
+                    });
+                    return all_objects
+                };
+                var diseases_to_show = get_possible_disease()
+                diseases_to_show = diseases_to_show.filter(probability => (probability > 0));
+                diseases_to_show.sort((a, b) => parseFloat(b.possibility) - parseFloat(a.possibility));
+                setInnerHTML(appMainDiv, `
+                    <div style="text-align: center" class="row">
+                        <div class="col s2">
+                            <div>
+                                <ul>
+                                    <li class="not_current_screen">Terms and Conditions</li>
+                                    <li class="not_current_screen">Patient Info</li>
+                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="current_screen">Diseases</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col s8">
+                            <h5 style="text-size: 0.6vw">Patient Age: ${age}</h5>
+                            <h5 style="text-size: 0.6vw">Patient Gender: ${String.capitalizeFirstLetter(gender)}</h5>
+                            <p>Patient is overweight or obese</p>
+                            <p id="overweightToFill"></p>
+                            <hr>
+                            <p>Patient smokes cigarettes</p>
+                            <p id="cigarettesToFill"></p>
+                            <hr>
+                            <p>Patient has been recently injured</p>
+                            <p id="injuryToFill"></p>
+                            <hr>
+                            <p>Patient has high cholesterol</p>
+                            <p id="cholesterolToFill"></p>
+                            <hr>
+                            <p>Patient has hypertension</p>
+                            <p id="hypertensionToFill"></p>
+                            <hr>
+                            <p>Patient has diabetes</p>
+                            <p id="diabetesToFill"></p>
+                            <hr>
+                            <p>Patient Symptoms</p>
+                            <div id="currentPatientSymptoms"></div>
+                            <hr>
+                            <br>
+                            <div id="show_diseases">
+                                <h5><b>Diagnostic Report</b></h5>
+                            </div>
+                        </div>
+                    </div>   
+                    <br>
+                    <br>
+                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(4)">Back</button>
+                    <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn" disabled>Next</button>    
+                    <script>
+                        document.getElementById("overweightToFill").innerHTML = otherInfo.overweight
+                        document.getElementById("cigarettesToFill").innerHTML = otherInfo.cigarettes
+                        document.getElementById("injuryToFill").innerHTML = otherInfo.injury
+                        document.getElementById("cholesterolToFill").innerHTML = otherInfo.cholesterol
+                        document.getElementById("hypertensionToFill").innerHTML = otherInfo.hypertension
+                        document.getElementById("diabetesToFill").innerHTML = otherInfo.diabetes
+                    <\/script> 
+                `)
+                var user_symptoms = "";
+                for (let each_user_symptom of currentSymptoms) user_symptoms+=`<span style='margin-left: 5px; margin-right: 5px;'>${each_user_symptom}</span>`;
+                document.getElementById("currentPatientSymptoms").innerHTML = user_symptoms;
+
+                for (let disease_to_show of diseases_to_show) {
+                    document.getElementById("show_diseases").innerHTML+=`
+                        <div>
+                            <h5 style="text-size: 0.3vw; display: inline-block; vertical-align: middle; text-align: left; margin-right: 10%">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
+                            <p style="display: inline-block; vertical-align: top; text-align: right;">
+                                <span>${disease_to_show.possibility}%</span>
+                                <progress value="${disease_to_show.possibility}" max="100">${disease_to_show.possibility}%</progress>
+                            </p>
+                            <div id="${disease_to_show.name}"></div>
+                        </div>
+                    `;
+                    var current_disease_symptoms = ""
+                    for (let symptom_of_disease of diseases[disease_to_show.name]) {
+                        if (typeof(symptom_of_disease) !== "object") {
+                            if (currentSymptoms.includes(symptom_of_disease)) current_disease_symptoms=`<span style='border: 2px solid var(--global-color-invert); border-radius: 3px; padding-left: 1px; padding-right: 1px; margin-left: 4px; margin-right: 4px;'>${symptom_of_disease}</span>`+current_disease_symptoms
+                            else current_disease_symptoms+=`<span style="margin-left: 5px; margin-right: 5px;">${symptom_of_disease}</span>`
+                        } else {
+                            current_disease_symptoms+=`<br><p>Treatments Include: ${symptom_of_disease['Treatment']}</p>`
+                        }
+                    }
+                    document.getElementById(disease_to_show.name).innerHTML = current_disease_symptoms
+                }
+            }
+        }
+    </script>
+    <br>
+</body>
+</html>

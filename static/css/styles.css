@@ -1,0 +1,50 @@
+html {
+    --global-color: white;
+    --global-color-invert: black;
+    --background-color: white;
+    --not-current-screen: lightgray;
+    --current-screen: black;
+}
+
+html[data-theme="dark"] {
+    --global-color: black;
+    --global-color-invert: white;
+    --background-color: #1A1B1C;
+    --not-current-screen: #787878;
+    --current-screen: white;
+}
+
+.not_current_screen {
+    color: var(--not-current-screen);
+    border-left: 2px solid var(--not-current-screen);
+    padding-left: 3px;
+}
+
+.current_screen {
+    color: var(--current-screen);
+    border-left: 2px solid var(--current-screen);
+    padding-left: 3px;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--global-color-invert)
+}
+
+label > span {
+    color: var(--global-color-invert)
+}
+
+input[type="checkbox"] {
+    border: 2px solid var(--global-color-invert) !important;
+}
+
+#appMain {
+    border: 1.5px solid var(--global-color-invert); 
+    border-radius: 5px; 
+    padding-top: 1%; 
+    padding-bottom: 5%; 
+    margin-left: 15%; 
+    margin-right: 15%; 
+    text-align: center;
+}
