@@ -15,8 +15,8 @@ function detectColorScheme() {
     const htmlTag = document.getElementsByTagName("html")[0];
     var systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark": "light";
     var appTheme = localStorage.getItem("settings.theme");
-    if (appTheme === undefined || appTheme === "system") {
-        if (appTheme === undefined) {
+    if (appTheme === null || appTheme === "system") {
+        if (appTheme === null) {
             localStorage.setItem("settings.theme", "system")
         }
         htmlTag.setAttribute("data-theme", systemDarkMode);
