@@ -34,7 +34,7 @@
                 </div>
                 <div class="col s8">
                     <br>
-                    <ul style="display: table; margin: 0 auto;" class="browser-default">
+                    <ul style="text-align: center; list-style-position: inside;" class="browser-default">
                         <li>This is not a replacement for doctors.</li>
                         <li>This app may not be accurate.</li>
                         <li>Please accurately enter your symptoms.</li>
@@ -61,7 +61,8 @@
         </div>
     </div>
     <script>
-        function moveToPage(pageNum) {
+        function moveToPage(currentPageNum) {
+            pageNum = currentPageNum
             var appMainDiv = document.getElementById("appMain");
             var setInnerHTML = function(elm, html) {
                 elm.innerHTML = html;
@@ -90,8 +91,6 @@
                 }
             }
             if (pageNum == 1) {
-                window.pageNum = 1
-                
                 setInnerHTML(appMainDiv, `
                     <h5>Please Agree to These Terms and Conditions:</h5>
                     <div class="row">
@@ -133,7 +132,6 @@
                     <\/script>
                 `)
             } else if (pageNum == 2) {
-                window.pageNum = 2
                 setInnerHTML(appMainDiv, `
                     <h5>Enter Your Age and Gender</h5>
                     <div style="text-align: center" class="row">
@@ -413,7 +411,7 @@
                     return empty_array;
                 };
 
-                function get_possible_disease () {
+                function get_possible_diseases() {
                     let all_objects = [];
                     Object.keys(diseases).map((key) => {
                         let array1 = [...diseases[key]];
@@ -431,8 +429,10 @@
                     });
                     return all_objects
                 };
-                var diseases_to_show = get_possible_disease()
-                diseases_to_show = diseases_to_show.filter(probability => (probability > 0));
+                var diseases_to_show = get_possible_diseases();
+                diseases_to_show = diseases_to_show.filter(function(each_possible_disease) {
+                    return each_possible_disease["possibility"] > 0
+                });
                 diseases_to_show.sort((a, b) => parseFloat(b.possibility) - parseFloat(a.possibility));
                 setInnerHTML(appMainDiv, `
                     <div style="text-align: center" class="row">
@@ -504,7 +504,7 @@
                             <div id="${disease_to_show.name}"></div>
                         </div>
                     `;
-                    var current_disease_symptoms = ""
+                    var current_disease_symptoms = "";
                     for (let symptom_of_disease of diseases[disease_to_show.name]) {
                         if (typeof(symptom_of_disease) !== "object") {
                             if (currentSymptoms.includes(symptom_of_disease)) current_disease_symptoms=`<span style='border: 2px solid var(--global-color-invert); border-radius: 3px; padding-left: 1px; padding-right: 1px; margin-left: 4px; margin-right: 4px;'>${symptom_of_disease}</span>`+current_disease_symptoms

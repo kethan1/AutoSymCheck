@@ -432,6 +432,7 @@ diseases = {
         "Agitation",
         "Palpitation",
         "Hallucinations auditory",
+                    
         "Mood depressed",
         "Hot flush",
         "Pain",
