@@ -18,12 +18,14 @@ html[data-theme="dark"] {
     color: var(--not-current-screen);
     border-left: 2px solid var(--not-current-screen);
     padding-left: 3px;
+    margin-top: 2px;
 }
 
 .current_screen {
     color: var(--current-screen);
     border-left: 2px solid var(--current-screen);
     padding-left: 3px;
+    margin-top: 2px;
 }
 
 body {

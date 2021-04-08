@@ -1,6 +1,6 @@
-diseases = {
+globalThis.diseases = {
     "Hypertensive disease": [
-        "Pain chest",
+        "Chest pain",
         "Shortness of breath",
         "Dizziness",
         "Asthenia",
@@ -21,7 +21,7 @@ diseases = {
         "Polyuria",
         "Polydypsia",
         "Shortness of breath",
-        "Pain chest",
+        "Chest pain",
         "Asthenia",
         "Nausea",
         "Orthopnea",
@@ -90,7 +90,7 @@ diseases = {
         }
     ],
     "Coronary arteriosclerosis": [
-        "Pain chest",
+        "Chest pain",
         "Angina pectoris",
         "Shortness of breath",
         "Hypokinesia",
@@ -105,7 +105,7 @@ diseases = {
         }
     ],
     "Coronary heart disease": [
-        "Pain chest",
+        "Chest pain",
         "Angina pectoris",
         "Shortness of breath",
         "Hypokinesia",
@@ -183,7 +183,7 @@ diseases = {
         }
     ],
     "Myocardial infarction": [
-        "Pain chest",
+        "Chest pain",
         "St segment elevation",
         "Sweat",
         "Sweating increased",
@@ -208,10 +208,9 @@ diseases = {
     ],
     "Hypercholesterolemia": [
         "Pain",
-        "Pain chest",
+        "Chest pain",
         "Sweat",
         "Sweating increased",
-        "Nonsmoker",
         "Pressure chest",
         "Syncope",
         "Numbness",
@@ -270,7 +269,7 @@ diseases = {
         "Asthenia",
         "Fatigue",
         "Heme positive",
-        "Pain back",
+        "Back pain",
         "Orthostasis",
         "Hyponatremia",
         "Dizziness",
@@ -376,7 +375,6 @@ diseases = {
         "General discomfort",
         "Drowsiness",
         "Asthenia",
-        "Nonsmoker",
         "Non-productive cough",
         "Polydypsia",
         "Stiffness",
@@ -427,7 +425,7 @@ diseases = {
         "Hallucinations visual",
         "Formication",
         "Difficulty",
-        "Pain chest",
+        "Chest pain",
         "Patient non compliance",
         "Agitation",
         "Palpitation",
@@ -545,7 +543,7 @@ diseases = {
         "Hypesthesia",
         "Hyperacusis",
         "Pruritus",
-        "Pain chest",
+        "Chest pain",
         "Scratch marks",
         "Chill",
         "Sore to touch",
@@ -555,7 +553,7 @@ diseases = {
     ],
     "Gastroesophageal reflux disease": [
         "Pain",
-        "Pain chest",
+        "Chest pain",
         "Burning sensation",
         "Hyponatremia",
         "Satiety early",
@@ -567,7 +565,7 @@ diseases = {
         "General discomfort",
         "Constipation",
         "Palpitation",
-        "Pain abdominal",
+        "Abdominal pain",
         "Heartburn",
         "Sweat",
         "Sweating increased",
@@ -675,7 +673,7 @@ diseases = {
     "Neoplasm": [
         "Mass of body structure",
         "Lesion",
-        "Pain chest",
+        "Chest pain",
         "Hematuria",
         "Tumor cell invasion",
         "Pain",
@@ -687,7 +685,7 @@ diseases = {
         "Night sweat",
         "Hemianopsia homonymous",
         "Satiety early",
-        "Pain abdominal",
+        "Abdominal pain",
         "Headache",
         {
             "Treatment": ""
@@ -698,7 +696,7 @@ diseases = {
         "Hypoxemia",
         "Tachypnea",
         "Hematocrit decreased",
-        "Pain chest",
+        "Chest pain",
         "Dyspnea",
         "Pleuritic pain",
         "Neck stiffness",
@@ -738,7 +736,7 @@ diseases = {
         "Hypokinesia",
         "Jugular venous distention",
         "Palpitation",
-        "Pain chest",
+        "Chest pain",
         "Syncope",
         "Yellow sputum",
         "Rale",
@@ -821,7 +819,7 @@ diseases = {
     ],
     "Peripheral vascular disease": [
         "Shortness of breath",
-        "Rest pain",
+        "Pain in lower limb",
         "Angina pectoris",
         "Unresponsiveness",
         "Hyperkalemia",
@@ -866,7 +864,7 @@ diseases = {
         }
     ],
     "Hyperlipidemia": [
-        "Pain chest",
+        "Chest pain",
         "Angina pectoris",
         "Palpitation",
         "Presence of q wave",
@@ -920,7 +918,7 @@ diseases = {
         "Pain",
         "Catatonia",
         "Snore",
-        "Pain chest",
+        "Chest pain",
         "R wave feature",
         "Has religious belief",
         "Shortness of breath",
@@ -936,7 +934,7 @@ diseases = {
     "Ischemia": [
         "Drowsiness",
         "Sleepy",
-        "Pain chest",
+        "Chest pain",
         "Angina pectoris",
         "Pressure chest",
         "Chest discomfort",
@@ -958,7 +956,7 @@ diseases = {
         "Fall",
         "Splenomegaly",
         "Pruritus",
-        "Pain abdominal",
+        "Abdominal pain",
         "Tumor cell invasion",
         "Distended abdomen",
         "Lesion",
@@ -1153,7 +1151,7 @@ diseases = {
         "Pain",
         "Cicatrisation",
         "Scar tissue",
-        "Pain abdominal",
+        "Abdominal pain",
         {
             "Treatment": ""
         }
@@ -1182,7 +1180,7 @@ diseases = {
     ],
     "Pancreatitis": [
         "Vomiting", 
-        "Pain abdominal", 
+        "Abdominal pain", 
         "Nausea", 
         "Pain", 
         "Diarrhea", 
@@ -1220,7 +1218,7 @@ diseases = {
         "Dyspnea on exertion",
         "Jugular venous distention",
         "Rale",
-        "Pain chest",
+        "Chest pain",
         "Palpitation",
         "Sweat",
         "Sweating increased",
@@ -1232,7 +1230,7 @@ diseases = {
         }
     ],
     "Hernia": [
-        "Pain abdominal",
+        "Abdominal pain",
         "Pain",
         "Hyperventilation",
         "Excruciating pain",
@@ -1323,7 +1321,7 @@ diseases = {
         "Chest discomfort",
         "Hyperkalemia",
         "Sinus rhythm",
-        "Pain chest",
+        "Chest pain",
         "Hypotension",
         "Wheezing",
         {
@@ -1358,7 +1356,7 @@ diseases = {
         "Systolic murmur",
         "Sciatica",
         "Angina pectoris",
-        "Pain chest",
+        "Chest pain",
         "Frothy sputum",
         "Bradycardia",
         "Shortness of breath",
@@ -1419,7 +1417,7 @@ diseases = {
         }
     ],
     "Diverticulitis": [
-        "Pain abdominal",
+        "Abdominal pain",
         "Abscess bacterial",
         "Dullness",
         "Red blotches",
@@ -1461,13 +1459,13 @@ diseases = {
         }
     ],
     "Ulcer peptic": [
-        "Pain abdominal", 
+        "Abdominal pain", 
         "Paraparesis", 
         "Nausea", 
         "Vomiting", 
         "Polymyalgia", 
         "Out of breath", 
-        "Pain chest", 
+        "Chest pain", 
         "Hemiplegia", 
         "Gurgle", 
         "Hunger", 
@@ -1488,7 +1486,7 @@ diseases = {
         "Apyrexial",
         "Erythema",
         "Abscess bacterial",
-        "Pain foot",
+        "Foot pain",
         "Urinary hesitation",
         {
             "Treatment": ""
@@ -1496,7 +1494,7 @@ diseases = {
     ],
     "Gastritis": [
         "Heme positive",
-        "Pain abdominal",
+        "Abdominal pain",
         "Vomiting",
         "Disequilibrium",
         "Nausea",
@@ -1553,12 +1551,12 @@ diseases = {
     ],
     "Sickle cell anemia": [
         "Breakthrough pain", 
-        "Pain back", 
+        "Back pain", 
         "Pain", 
         "Shortness of breath", 
         "Snuffle", 
-        "Pain chest", 
-        "Pain abdominal", 
+        "Chest pain", 
+        "Abdominal pain", 
         "Hepatosplenomegaly", 
         "Green sputum", 
         "Apyrexial", 
@@ -1620,7 +1618,7 @@ diseases = {
         "Ascites",
         "Spontaneous rupture of membranes",
         "Tachypnea",
-        "Pain abdominal",
+        "Abdominal pain",
         "Pruritus",
         "Anorexia",
         "Transaminitis",
@@ -1728,7 +1726,7 @@ diseases = {
         "Gurgle",
         "Pain",
         "Diarrhea",
-        "Pain abdominal",
+        "Abdominal pain",
         {
             "Treatment": ""
         }
@@ -1745,7 +1743,7 @@ diseases = {
         "Chill",
         "Tenesmus",
         "Urge incontinence",
-        "Pain abdominal",
+        "Abdominal pain",
         "Hemodynamically stable",
         {
             "Treatment": ""
@@ -1828,7 +1826,7 @@ diseases = {
         "Yellow sputum", 
         "Projectile vomiting", 
         "Poor feeding", 
-        "Pain abdominal", 
+        "Abdominal pain", 
         "Abdominal tenderness", 
         "Wheelchair bound", 
         "Moan",
@@ -1919,7 +1917,7 @@ diseases = {
         "Vomiting", 
         "Nausea", 
         "Bradycardia", 
-        "Pain abdominal", 
+        "Abdominal pain", 
         "Fever", 
         "Cicatrisation", 
         "Mediastinal shift", 
@@ -2011,7 +2009,7 @@ diseases = {
     "Kidney disease": [
         "Shortness of breath", 
         "Hyperkalemia", 
-        "Pain chest", 
+        "Chest pain", 
         "Fever", 
         "Gravida 0", 
         "Bleeding of vagina",
@@ -2051,10 +2049,10 @@ diseases = {
         "Thicken", 
         "Tumor cell invasion", 
         "Metastatic lesion", 
-        "Pain neck", 
+        "Neck pain", 
         "Lung nodule", 
         "Pain", 
-        "Pain abdominal", 
+        "Abdominal pain", 
         "Food intolerance", 
         "Mass of body structure", 
         "Atypia",
@@ -2068,7 +2066,7 @@ diseases = {
         "Constipation",
         "General discomfort",
         "Diarrhea",
-        "Pain abdominal",
+        "Abdominal pain",
         "Urinary hesitation",
         "Dizzy spells",
         "Shooting pain",
@@ -2088,7 +2086,7 @@ diseases = {
         "Constipation",
         "General discomfort",
         "Diarrhea",
-        "Pain abdominal",
+        "Abdominal pain",
         "Urinary hesitation",
         "Dizzy spells",
         "Shooting pain",
@@ -2106,7 +2104,7 @@ diseases = {
         "Polyuria",
         "Vomiting",
         "Nausea",
-        "Pain abdominal",
+        "Abdominal pain",
         "Milky",
         "Feeling strange",
         "Gurgle",
@@ -2176,7 +2174,7 @@ diseases = {
         "Thicken",
         "Chill",
         "Decreased translucency",
-        "Pain abdominal",
+        "Abdominal pain",
         "Dullness",
         "Food intolerance",
         "Distress respiratory",
@@ -2220,7 +2218,7 @@ diseases = {
         }
     ],
     "Gastroenteritis": [
-        "Pain abdominal",
+        "Abdominal pain",
         "Breath-holding spell",
         "Nausea",
         "Decreased body weight",
@@ -2332,7 +2330,7 @@ diseases = {
         "Indifferent mood",
         "Cachexia",
         "Hypothermia, natural",
-        "Pain abdominal",
+        "Abdominal pain",
         "Hepatomegaly",
         "Hematocrit decreased",
         "Stupor",
@@ -2452,7 +2450,7 @@ diseases = {
         "Chill", 
         "Diarrhea", 
         "Nausea", 
-        "Pain abdominal", 
+        "Abdominal pain", 
         "Myalgia", 
         "Fever", 
         "Chill",
@@ -2662,7 +2660,7 @@ diseases = {
     "Cholecystitis": [
         "Moan",
         "Nausea",
-        "Pain abdominal",
+        "Abdominal pain",
         "Murphy's sign",
         "Flatulence",
         "Colic abdominal",
@@ -2683,7 +2681,7 @@ diseases = {
         }
     ],
     "Hernia hiatal": [
-        "Pain abdominal",
+        "Abdominal pain",
         "Fatigability",
         "Prodrome",
         "Vomiting",
@@ -2730,7 +2728,7 @@ diseases = {
     "Cholelithiasis": [
         "Vomiting", 
         "Nausea", 
-        "Pain abdominal", 
+        "Abdominal pain", 
         "Pain", 
         "Cushingoid facies", 
         "Cushingoid habitus", 
@@ -2747,7 +2745,7 @@ diseases = {
     "Biliary calculus": [
         "Vomiting", 
         "Nausea", 
-        "Pain abdominal", 
+        "Abdominal pain", 
         "Pain", 
         "Cushingoid facies", 
         "Cushingoid habitus", 
@@ -2774,7 +2772,7 @@ diseases = {
         "Shortness of breath",
         "T wave inverted",
         "Vomiting",
-        "Pain abdominal",
+        "Abdominal pain",
         {
             "Treatment": ""
         }
@@ -2794,7 +2792,7 @@ diseases = {
         "Constipation",
         "Thicken",
         "Gravida 0",
-        "Pain abdominal",
+        "Abdominal pain",
         {
             "Treatment": ""
         }

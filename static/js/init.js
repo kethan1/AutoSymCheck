@@ -1,5 +1,5 @@
 globalThis.currentSymptoms = []
-globalThis.pageNum = 1;
+globalThis.globalPageNum = 1;
 globalThis.gender = "male"
 globalThis.age = 18
 globalThis.otherInfo = {
@@ -10,7 +10,8 @@ globalThis.otherInfo = {
     "hypertension": null,
     "diabetes": null
 }
-
+globalThis.patientQuestions = {}
+    
 function detectColorScheme() {
     const htmlTag = document.getElementsByTagName("html")[0];
     var systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark": "light";

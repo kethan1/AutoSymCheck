@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/static/css/styles.css">
     <script src="/static/js/datasets/symptoms.js"></script>
     <script src="/static/js/datasets/diseases.js"></script>
+    <script src="/static/js/datasets/symptoms_from_patient_info.js"></script>
     <script src="/static/js/init.js"></script>
     <link rel="icon" type="image/png" href="/static/images/favicon.png"/>
 </head>
@@ -27,6 +28,7 @@
                         <ul>
                             <li class="current_screen">Terms and Conditions</li>
                             <li class="not_current_screen">Patient Info</li>
+                            <li class="not_current_screen">Suggested Symptoms</li>
                             <li class="not_current_screen">Symptoms</li>
                             <li class="not_current_screen">Diseases</li>
                         </ul>
@@ -61,35 +63,34 @@
         </div>
     </div>
     <script>
-        function moveToPage(currentPageNum) {
-            pageNum = currentPageNum
-            var appMainDiv = document.getElementById("appMain");
-            var setInnerHTML = function(elm, html) {
-                elm.innerHTML = html;
-                Array.from(elm.querySelectorAll("script")).forEach( oldScript => {
-                    const newScript = document.createElement("script");
-                    Array.from(oldScript.attributes)
-                    .forEach( attr => newScript.setAttribute(attr.name, attr.value) );
-                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-                    oldScript.parentNode.replaceChild(newScript, oldScript);
+        function setInnerHTML(elm, html) {
+            elm.innerHTML = html;
+            Array.from(elm.querySelectorAll("script")).forEach( oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes)
+                .forEach( attr => newScript.setAttribute(attr.name, attr.value) );
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        }
+        if (!String.format) {
+            String.format = function(format) {
+                var args = Array.prototype.slice.call(arguments, 1);
+                return format.replace(/{(\d+)}/g, function(match, number) { 
+                return typeof args[number] != 'undefined'
+                    ? args[number] 
+                    : match
+                ;
                 });
+            };
+        }
+        if (!String.capitalizeFirstLetter) {
+            String.capitalizeFirstLetter = function(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
             }
-            if (!String.format) {
-                String.format = function(format) {
-                    var args = Array.prototype.slice.call(arguments, 1);
-                    return format.replace(/{(\d+)}/g, function(match, number) { 
-                    return typeof args[number] != 'undefined'
-                        ? args[number] 
-                        : match
-                    ;
-                    });
-                };
-            }
-            if (!String.capitalizeFirstLetter) {
-                String.capitalizeFirstLetter = function(string) {
-                    return string.charAt(0).toUpperCase() + string.slice(1);
-                }
-            }
+        }
+        function moveToPage(pageNum) {
+            var appMainDiv = document.getElementById("appMain");
             if (pageNum == 1) {
                 setInnerHTML(appMainDiv, `
                     <h5>Please Agree to These Terms and Conditions:</h5>
@@ -99,6 +100,7 @@
                                 <ul>
                                     <li class="current_screen">Terms and Conditions</li>
                                     <li class="not_current_screen">Patient Info</li>
+                                    <li class="not_current_screen">Suggested Symptoms</li>
                                     <li class="not_current_screen">Symptoms</li>
                                     <li class="not_current_screen">Diseases</li>
                                 </ul>
@@ -140,6 +142,7 @@
                                 <ul>
                                     <li class="not_current_screen">Terms and Conditions</li>
                                     <li class="current_screen">Patient Info</li>
+                                    <li class="not_current_screen">Suggested Symptoms</li>
                                     <li class="not_current_screen">Symptoms</li>
                                     <li class="not_current_screen">Diseases</li>
                                 </ul>
@@ -196,6 +199,7 @@
                                 <ul>
                                     <li class="not_current_screen">Terms and Conditions</li>
                                     <li class="current_screen">Patient Info</li>
+                                    <li class="not_current_screen">Suggested Symptoms</li>
                                     <li class="not_current_screen">Symptoms</li>
                                     <li class="not_current_screen">Diseases</li>
                                 </ul>
@@ -204,7 +208,7 @@
                         <div class="col s8">
                             <br>
                             <div id="overweight">
-                                <span style="font-size: 1.5vw">I am overweight</span>
+                                <span>I am overweight</span>
                                 <label>
                                     <input id="overweight1" name="overweight" type="radio" onclick="changeData('overweight', 'Yes')" />
                                     <span>Yes</span>
@@ -220,7 +224,7 @@
                             </div>
                             <br>
                             <div id="smoking">
-                                <span style="font-size: 1.5vw">I smoke cigarettes</span>
+                                <span>I smoke cigarettes</span>
                                 <label>
                                     <input id="cigarettes1" name="cigarettes" type="radio" onclick="changeData('cigarettes', 'Yes')" />
                                     <span>Yes</span>
@@ -236,7 +240,7 @@
                             </div>
                             <br>
                             <div id="injury">
-                                <span style="font-size: 1.5vw">I have been recently injured.</span>
+                                <span>I have been recently injured.</span>
                                 <label>
                                     <input id="injury1" name="injury" type="radio" onclick="changeData('injury', 'Yes')" />
                                     <span>Yes</span>
@@ -252,7 +256,7 @@
                             </div>
                             <br>
                             <div id="cholesterol">
-                                <span style="font-size: 1.5vw">I have high cholesterol.</span>
+                                <span>I have high cholesterol.</span>
                                 <label>
                                     <input id="cholesterol1" name="cholesterol" type="radio" onclick="changeData('cholesterol', 'Yes')" />
                                     <span>Yes</span>
@@ -268,7 +272,7 @@
                             </div>
                             <br>
                             <div id="hypertension">
-                                <span style="font-size: 1.5vw">I have hypertension</span>
+                                <span>I have hypertension</span>
                                 <label>
                                     <input id="hypertension1" name="hypertension" type="radio" onclick="changeData('hypertension', 'Yes')" />
                                     <span>Yes</span>
@@ -284,7 +288,7 @@
                             </div>
                             <br>
                             <div id="diabetes">
-                                <span style="font-size: 1.5vw">I have diabetes</span>
+                                <span>I have diabetes</span>
                                 <label>
                                     <input id="diabetes1" name="diabetes" type="radio" onclick="changeData('diabetes', 'Yes')" />
                                     <span>Yes</span>
@@ -314,8 +318,7 @@
                                 } else {
                                     document.getElementById(String.format("{0}3", each)).checked = true
                                 }
-                            }
-                            
+                            } 
                         }
                         var canContinue = true
                         for (let each in otherInfo) {
@@ -352,13 +355,99 @@
                     <\/script>
                 `);
             } else if (pageNum == 4) {
+                var noYes = true
+                for (var [key, value] of Object.entries(otherInfo)) {
+                    if (value === "Yes") noYes = false
+                }
+                if (noYes) {
+                    if (globalPageNum === 3) {
+                        moveToPage(5)
+                        return
+                    } else if (globalPageNum === 5) {
+                        moveToPage(3)
+                        return
+                    }
+                }
                 setInnerHTML(appMainDiv, `
+                    <h5>Please Check If You Have Any of These Symptoms</h5>
                     <div style="text-align: center" class="row">
                         <div class="col s2">
                             <div>
                                 <ul>
                                     <li class="not_current_screen">Terms and Conditions</li>
                                     <li class="not_current_screen">Patient Info</li>
+                                    <li class="current_screen">Suggested Symptoms</li>
+                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Diseases</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="askForAllSymptoms" class="col s8"></div>
+                    </div>
+                    <button style="margin-right: 25%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(3)">Back</button>
+                    <button style="margin-left: 25%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(5)">Next</button>
+                `)
+                globalThis.addToUsersSymptoms = (symptom) => {
+                    if (!(currentSymptoms.includes(symptom))) {
+                        currentSymptoms.push(symptom)
+                        patientQuestions[symptom] = "Yes"
+                    } 
+                }
+                globalThis.removeFromUsersSymptoms = (symptom) => {
+                    currentSymptoms = currentSymptoms.filter(item => item !== symptom)
+                    patientQuestions[symptom] = "No"
+                }
+                var symptomsToAskList = []
+                var askForAllSymptoms = document.getElementById("askForAllSymptoms")
+                if (otherInfo["overweight"] == "Yes") {
+                    symptomsToAskList.push(...Symptoms_from_patient_info["overweight"])
+                }
+                if (otherInfo["cigarettes"] == "Yes") {
+                    symptomsToAskList.push(...Symptoms_from_patient_info["cigarettes"])
+                }
+                if (otherInfo["injury"] == "Yes") {
+                    symptomsToAskList.push(...Symptoms_from_patient_info["injury"])
+                }
+                if (otherInfo["cholesterol"] == "Yes") {
+                    symptomsToAskList.push(...Symptoms_from_patient_info["cholesterol"])
+                }
+                if (otherInfo["hypertension"] == "Yes") {
+                    symptomsToAskList.push(...Symptoms_from_patient_info["hypertension"])
+                }
+                if (otherInfo["diabetes"] == "Yes") {
+                    symptomsToAskList.push(...Symptoms_from_patient_info["diabetes"])
+                }
+                symptomsToAskList = [...new Set(symptomsToAskList)];
+                for (let to_ask of symptomsToAskList) {
+                    if (!(to_ask in patientQuestions)) patientQuestions[to_ask] = null
+                    var yesSelected = "";
+                    var noSelected = "";
+                    if (currentSymptoms.includes(to_ask)) yesSelected = " checked";
+                    else if (patientQuestions[to_ask] == "No") noSelected = " checked";
+                    askForAllSymptoms.innerHTML += `
+                        <div id="${to_ask}">
+                            <span>Do You Have ${to_ask}?</span>
+                            <label>
+                                <input id="${to_ask}1" name="${to_ask}" type="radio" onclick="addToUsersSymptoms('${to_ask}');"${yesSelected} />
+                                <span>Yes</span>
+                            </label>
+                            <label>
+                                <input id="${to_ask}2" name="${to_ask}" type="radio" onclick="removeFromUsersSymptoms('${to_ask}')"${noSelected} />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    `
+                }
+            } else if (pageNum == 5) {
+                setInnerHTML(appMainDiv, `
+                    <h5>Please Select Anymore Symptoms or Skip</h5>
+                    <div style="text-align: center" class="row">
+                        <div class="col s2">
+                            <div>
+                                <ul>
+                                    <li class="not_current_screen">Terms and Conditions</li>
+                                    <li class="not_current_screen">Patient Info</li>
+                                    <li class="not_current_screen">Suggested Symptoms</li>
                                     <li class="current_screen">Symptoms</li>
                                     <li class="not_current_screen">Diseases</li>
                                 </ul>
@@ -371,8 +460,8 @@
                     </div>   
                     <br>
                     <br>
-                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(3)">Back</button>
-                    <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(5)">Next</button>     
+                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(4)">Back</button>
+                    <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(6)">Next</button>     
                     <script>
                         var divChips = document.getElementById("divChips");
                         function AddChip(symptom, bypass=false) {
@@ -398,7 +487,7 @@
                         symptomsList.innerHTML = toInsert
                     <\/script>
                 `)
-            } else if (pageNum == 5) {
+            } else if (pageNum == 6) {
                 function possible_disease_function(arr1, arr2) {
                     let empty_array = [];
                     for (let i = 0; i < arr1.length; i++) {
@@ -435,12 +524,14 @@
                 });
                 diseases_to_show.sort((a, b) => parseFloat(b.possibility) - parseFloat(a.possibility));
                 setInnerHTML(appMainDiv, `
+                    <h5>Symptoms You Might Have</h5>
                     <div style="text-align: center" class="row">
                         <div class="col s2">
                             <div>
                                 <ul>
                                     <li class="not_current_screen">Terms and Conditions</li>
                                     <li class="not_current_screen">Patient Info</li>
+                                    <li class="not_current_screen">Suggested Symptoms</li>
                                     <li class="not_current_screen">Symptoms</li>
                                     <li class="current_screen">Diseases</li>
                                 </ul>
@@ -478,7 +569,7 @@
                     </div>   
                     <br>
                     <br>
-                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(4)">Back</button>
+                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(5)">Back</button>
                     <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn" disabled>Next</button>    
                     <script>
                         document.getElementById("overweightToFill").innerHTML = otherInfo.overweight
@@ -516,8 +607,11 @@
                     document.getElementById(disease_to_show.name).innerHTML = current_disease_symptoms
                 }
             }
+            globalPageNum = parseInt(pageNum)
         }
     </script>
     <br>
 </body>
 </html>
+
+
