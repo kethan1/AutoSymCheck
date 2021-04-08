@@ -38,8 +38,9 @@
                     <br>
                     <ul style="text-align: center; list-style-position: inside;" class="browser-default">
                         <li>This is not a replacement for doctors.</li>
-                        <li>This app may not be accurate.</li>
-                        <li>Please accurately enter your symptoms.</li>
+                        <li>This app may not be completely accurate.</li>
+                        <li>Do not use this to actually check symptoms for patients.</li>
+                        <li>This is a demo, we are non-liable.</li>
                     </ul>
                 </div>
             </div>
@@ -108,7 +109,7 @@
                         </div>
                         <div class="col s8">
                             <br>
-                            <ul style="display: table; margin: 0 auto;" class="browser-default">
+                            <ul style="text-align: center; list-style-position: inside;" class="browser-default">
                                 <li>This is not a replacement for doctors.</li>
                                 <li>This app may not be accurate.</li>
                                 <li>Please accurately enter your symptoms.</li>
@@ -322,36 +323,22 @@
                         }
                         var canContinue = true
                         for (let each in otherInfo) {
-                            if (otherInfo[each] === null) {
-                                canContinue = false;
-                            }
+                            if (otherInfo[each] === null) canContinue = false;
                         }
-                        if (canContinue) {
-                            document.getElementById("next").disabled = false
-                        } else {
-                            document.getElementById("next").disabled = true
-                        }
+                        if (canContinue) document.getElementById("next").disabled = false
+                        else document.getElementById("next").disabled = true
 
                         function changeData(whichData, changeTo) {
-                            if (changeTo != "Unknown") {
-                                otherInfo[whichData] = changeTo
-                            } else {
-                                otherInfo[whichData] = "Patient doesn't know"
-                            }
+                            if (changeTo != "Unknown") otherInfo[whichData] = changeTo
+                            else otherInfo[whichData] = "Patient doesn't know"
                             
                             var canContinue = true
                             for (let each in otherInfo) {
-                                if (otherInfo[each] === null) {
-                                    canContinue = false;
-                                }
+                                if (otherInfo[each] === null) canContinue = false;
                             }
-                            if (canContinue) {
-                                document.getElementById("next").disabled = false
-                            } else {
-                                document.getElementById("next").disabled = true
-                            }
+                            if (canContinue) document.getElementById("next").disabled = false
+                            else document.getElementById("next").disabled = true
                         }
-                        
                     <\/script>
                 `);
             } else if (pageNum == 4) {
@@ -361,11 +348,11 @@
                 }
                 if (noYes) {
                     if (globalPageNum === 3) {
-                        moveToPage(5)
-                        return
+                        moveToPage(5);
+                        return;
                     } else if (globalPageNum === 5) {
-                        moveToPage(3)
-                        return
+                        moveToPage(3);
+                        return;
                     }
                 }
                 setInnerHTML(appMainDiv, `
@@ -453,9 +440,15 @@
                                 </ul>
                             </div>
                         </div>
+                        
                         <div class="col s5">
+                            <div class="input-field">
+                                <input style="color: var(--global-color-invert)" oninput="inputSearch()" id="symptomsList_search_bar" type="text">
+                                <label for="symptomsList_search_bar">Search Symptoms</label>
+                            </div>
                             <div id="symptomsList" style="height: 60vh; overflow-y: scroll; width: 30vw; text-align: center"></div>
                         </div>
+                        
                         <div class="col s5" id="divChips"></div>
                     </div>   
                     <br>
@@ -480,9 +473,26 @@
                                 currentSymptoms = currentSymptoms.filter(item => item !== symptom)
                             }
                         }
+
+                        function inputSearch() {
+                            var search_bar = document.getElementById("symptomsList_search_bar");
+                            var symptomsList = document.getElementById("symptomsList");
+                            var toInsert = "";
+                            for (let symptom of Symptoms) {
+                                if (search_bar.value !== "") {
+                                    if (symptom.toLowerCase().includes(search_bar.value.toLowerCase())) {
+                                        toInsert += String.format("<p style='margin: 0; padding-top: 0;' onclick='AddChip(String(/{0}/).substring(1).slice(0,-1))'>{0}<i style='cursor: pointer;' class='material-icons'>add</i></p>", symptom);
+                                    }
+                                } else {
+                                    toInsert += String.format("<p style='margin: 0; padding-top: 0;' onclick='AddChip(String(/{0}/).substring(1).slice(0,-1))'>{0}<i style='cursor: pointer;' class='material-icons'>add</i></p>", symptom)
+                                }
+                            }
+                            symptomsList.innerHTML = toInsert
+                        }
+
                         var symptomsList = document.getElementById("symptomsList");
                         var toInsert = "";
-                        for (let symptom of Symptoms) toInsert += String.format("<p style='margin: 0; padding-top: 0;' onclick='AddChip(String(/{0}/).substring(1).slice(0,-1))'>{0}</p>", symptom)
+                        for (let symptom of Symptoms) toInsert += String.format("<p style='margin: 0; padding-top: 0;' onclick='AddChip(String(/{0}/).substring(1).slice(0,-1))'>{0}<i style='cursor: pointer;' class='material-icons'>add</i></p>", symptom)
                         for (let each_currentSymptoms of currentSymptoms) AddChip(each_currentSymptoms, bypass=true)
                         symptomsList.innerHTML = toInsert
                     <\/script>
