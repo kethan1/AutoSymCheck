@@ -548,8 +548,8 @@
                             </div>
                         </div>
                         <div class="col s8">
-                            <h5 style="text-size: 0.6vw">Patient Age: ${age}</h5>
-                            <h5 style="text-size: 0.6vw">Patient Gender: ${String.capitalizeFirstLetter(gender)}</h5>
+                            <h5 style="text-size: 0.5vw">Patient Age: ${age}</h5>
+                            <h5 style="text-size: 0.5vw">Patient Gender: ${String.capitalizeFirstLetter(gender)}</h5>
                             <p>Patient is overweight or obese</p>
                             <p id="overweightToFill"></p>
                             <hr>
@@ -581,41 +581,46 @@
                     <br>
                     <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(5)">Back</button>
                     <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn" disabled>Next</button>    
-                    <script>
-                        document.getElementById("overweightToFill").innerHTML = otherInfo.overweight
-                        document.getElementById("cigarettesToFill").innerHTML = otherInfo.cigarettes
-                        document.getElementById("injuryToFill").innerHTML = otherInfo.injury
-                        document.getElementById("cholesterolToFill").innerHTML = otherInfo.cholesterol
-                        document.getElementById("hypertensionToFill").innerHTML = otherInfo.hypertension
-                        document.getElementById("diabetesToFill").innerHTML = otherInfo.diabetes
-                    <\/script> 
                 `)
+                document.getElementById("overweightToFill").innerHTML = otherInfo.overweight
+                document.getElementById("cigarettesToFill").innerHTML = otherInfo.cigarettes
+                document.getElementById("injuryToFill").innerHTML = otherInfo.injury
+                document.getElementById("cholesterolToFill").innerHTML = otherInfo.cholesterol
+                document.getElementById("hypertensionToFill").innerHTML = otherInfo.hypertension
+                document.getElementById("diabetesToFill").innerHTML = otherInfo.diabetes
                 var user_symptoms = "";
                 for (let each_user_symptom of currentSymptoms) user_symptoms+=`<span style='margin-left: 5px; margin-right: 5px;'>${each_user_symptom}</span>`;
                 document.getElementById("currentPatientSymptoms").innerHTML = user_symptoms;
 
-                for (let disease_to_show of diseases_to_show) {
-                    document.getElementById("show_diseases").innerHTML+=`
-                        <div>
-                            <h5 style="text-size: 0.3vw; display: inline-block; vertical-align: middle; text-align: left; margin-right: 10%">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
-                            <p style="display: inline-block; vertical-align: top; text-align: right;">
-                                <span>${disease_to_show.possibility}%</span>
-                                <progress value="${disease_to_show.possibility}" max="100">${disease_to_show.possibility}%</progress>
-                            </p>
-                            <div id="${disease_to_show.name}"></div>
-                        </div>
-                    `;
-                    var current_disease_symptoms = "";
-                    for (let symptom_of_disease of diseases[disease_to_show.name]) {
-                        if (typeof(symptom_of_disease) !== "object") {
-                            if (currentSymptoms.includes(symptom_of_disease)) current_disease_symptoms=`<span style='border: 2px solid var(--global-color-invert); border-radius: 3px; padding-left: 1px; padding-right: 1px; margin-left: 4px; margin-right: 4px;'>${symptom_of_disease}</span>`+current_disease_symptoms
-                            else current_disease_symptoms+=`<span style="margin-left: 5px; margin-right: 5px;">${symptom_of_disease}</span>`
-                        } else {
-                            current_disease_symptoms+=`<br><p>Treatments Include: ${symptom_of_disease['Treatment']}</p>`
+                if (diseases_to_show === undefined || diseases_to_show.length == 0) {
+                    document.getElementById("show_diseases").innerHTML += `<p>You have no diseases, and are most likely in good health!</p>`
+                } else { 
+                    for (let disease_to_show of diseases_to_show) {
+                        document.getElementById("show_diseases").innerHTML+=`
+                            <div>
+                                <h5 style="text-size: 0.3vw; display: inline-block; vertical-align: middle; text-align: left; margin-right: 10%">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
+                                <p style="display: inline-block; vertical-align: top; text-align: right;">
+                                    <span>${disease_to_show.possibility}%</span>
+                                    <progress value="${disease_to_show.possibility}" max="100">${disease_to_show.possibility}%</progress>
+                                </p>
+                                <div id="${disease_to_show.name}"></div>
+                            </div>
+                        `;
+                        var current_disease_symptoms = "";
+                        for (let symptom_of_disease of diseases[disease_to_show.name]) {
+                            if (typeof(symptom_of_disease) !== "object") {
+                                if (currentSymptoms.includes(symptom_of_disease)) current_disease_symptoms=`<span style='border: 2px solid var(--global-color-invert); border-radius: 3px; padding-left: 1px; padding-right: 1px; margin-left: 4px; margin-right: 4px;'>${symptom_of_disease}</span>`+current_disease_symptoms
+                                else current_disease_symptoms+=`<span style="margin-left: 5px; margin-right: 5px;">${symptom_of_disease}</span>`
+                            } else {
+                                if (symptom_of_disease['Treatment'] != "") {
+                                    current_disease_symptoms+=`<br><p>Treatments Include: ${symptom_of_disease['Treatment']}</p>`
+                                }
+                            }
                         }
+                        document.getElementById(disease_to_show.name).innerHTML = current_disease_symptoms
                     }
-                    document.getElementById(disease_to_show.name).innerHTML = current_disease_symptoms
                 }
+                
             }
             globalPageNum = parseInt(pageNum)
         }
