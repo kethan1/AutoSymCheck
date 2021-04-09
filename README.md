@@ -22,6 +22,28 @@
   - Production Demo
     - Application can be accessed online at https://healthhacks2021.herokuapp.com
 
+Sample Demo of Project:
+
+![ScreenShot](/static/images/Symptom_Checker_Terms:Conditions.png.png)
+
 ![ScreenShot](/static/images/Symptom_Checker_Age:Gender-Info.png)
 
-![ScreenShot](Symptom_Checker_Current-Medical-Conditions.png)
+![ScreenShot](/static/images/Symptom_Checker_Patient_Info.png)
+
+![ScreenShot](/static/images/Symptom_Checker_Current-Medical-Conditions.png)
+
+![ScreenShot](/static/images/Symptom_Checker_Possible-Symptoms.png)
+
+![ScreenShot](/static/images/Symptom_Checker_Symptom-Searchbar-Use.png)
+
+![ScreenShot](/static/images/Symptom_Checker_Symptom-Searchbar-Use.png)
+
+![ScreenShot](/static/images/Symptom_Checker_Diseases-Report.png)
+
+
+
+
+
+
+
+
