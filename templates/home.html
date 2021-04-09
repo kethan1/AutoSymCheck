@@ -97,7 +97,7 @@
                 `)
             } else if (pageNum == 2) {
                 setInnerHTML(appMainDiv, `
-                    <h5>Enter Your Age and Gender</h5>
+                    <h5>Patient Info</h5>
                     <div style="text-align: center" class="row">
                         <div class="col s2">
                             <div>
@@ -154,7 +154,7 @@
                 `);
             } else if (pageNum == 3) {
                 setInnerHTML(appMainDiv, `
-                    <h5>Please check all the statements below that apply to you</h5>
+                    <h5>Patient Info</h5>
                     <div style="text-align: center" class="row">
                         <div class="col s2">
                             <div>
@@ -317,7 +317,7 @@
                     }
                 }
                 setInnerHTML(appMainDiv, `
-                    <h5>Please Check If You Have Any of These Symptoms</h5>
+                    <h5>Suggested Symptoms</h5>
                     <div style="text-align: center" class="row">
                         <div class="col s2">
                             <div>
@@ -404,7 +404,7 @@
                 }
             } else if (pageNum == 5) {
                 setInnerHTML(appMainDiv, `
-                    <h5>Please Select Anymore Symptoms or Skip</h5>
+                    <h5>More Symptoms or Skip</h5>
                     <div style="text-align: center" class="row">
                         <div class="col s2">
                             <div>
@@ -511,7 +511,7 @@
                 });
                 diseases_to_show.sort((a, b) => parseFloat(b.possibility) - parseFloat(a.possibility));
                 setInnerHTML(appMainDiv, `
-                    <h5>Symptoms You Might Have</h5>
+                    <h5>Diagnostic Report</h5>
                     <div style="text-align: center" class="row">
                         <div class="col s2">
                             <div>
@@ -549,9 +549,7 @@
                             <div id="currentPatientSymptoms"></div>
                             <hr>
                             <br>
-                            <div id="show_diseases">
-                                <h5><b>Diagnostic Report</b></h5>
-                            </div>
+                            <div id="show_diseases"></div>
                         </div>
                     </div>   
                     <br>
