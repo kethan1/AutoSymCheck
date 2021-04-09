@@ -22,6 +22,6 @@
   - Production Demo
     - Application can be accessed online at https://healthhacks2021.herokuapp.com
 
-![ScreenShot](Symptom_Checker_Age:Gender-Info.png)
+![ScreenShot](/static/images/Symptom_Checker_Age:Gender-Info.png)
 
 ![ScreenShot](Symptom_Checker_Current-Medical-Conditions.png)
