@@ -8,8 +8,7 @@ html {
     --padding-bottom: 5%;
     --margin-left: 15%;
     --margin-right: 15%;
-    --padding-left: 0%;
-    --padding-right: 0%;
+    --right-button-padding: 33%;
 }
 
 html[data-theme="dark"] {
@@ -25,9 +24,8 @@ html[data-theme="dark"] {
         --padding-of-side: 20%;
         --padding-bottom: 3%;
         --margin-left: 2%;
-        --margin-right: 2%;
-        --padding-left: 1%;
-        --padding-right: 1%;
+        --margin-right: 5.5%;
+        --right-button-padding: 0%;
     }
     
 }
@@ -65,8 +63,6 @@ input[type="checkbox"] {
     padding-top: 1%; 
     padding-bottom: var(--padding-bottom); 
     margin-left: var(--margin-left); 
-    margin-right: var(--margin-right); 
-    padding-left: var(--padding-left);
-    padding-right: var(--padding-right);
+    margin-right: var(--margin-right);
     text-align: center;
 }
