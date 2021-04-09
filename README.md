@@ -22,4 +22,5 @@
   - Production Demo
     - Application can be accessed online at https://healthhacks2021.herokuapp.com
 
-![ScreenShot](Symptom_Checker_Terms:Conditions.png)
+![Alt text](/Symptom_Checker_Terms:Conditions.png?raw=true "Optional Title")
+
