@@ -21,48 +21,7 @@
         <h3 style="text-align: center">Symptom Checker</h3>
         <br>
         <br>
-        <div id="appMain" class="padded_div">
-            <h5>Please Agree to These Terms and Conditions:</h5>
-            <div class="row">
-                <div class="col s2">
-                    <div>
-                        <ul>
-                            <li class="current_screen">Terms and Conditions</li>
-                            <li class="not_current_screen">Patient Info</li>
-                            <li class="not_current_screen">Suggested Symptoms</li>
-                            <li class="not_current_screen">Symptoms</li>
-                            <li class="not_current_screen">Diseases</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col s8">
-                    <br>
-                    <ul style="text-align: center; list-style-position: inside;" class="browser-default">
-                        <li>This is not a replacement for doctors.</li>
-                        <li>This app may not be completely accurate.</li>
-                        <li>Do not use this to actually check symptoms for patients.</li>
-                        <li>This is a demo, we are non-liable.</li>
-                    </ul>
-                    <br>
-                    <br>
-                    <label style="text-align: center;">
-                        <input type="checkbox" class="filled-in" />
-                        <span>I understand</span>
-                    </label>
-                </div>
-            </div>
-            <br>
-            <button style="margin-right: 33%; display: inline-block;" id="back" class="waves-effect waves-light btn">Back</button>
-            <button style="margin-left: var(--right-button-padding)" id="next" class="waves-effect waves-light btn disabled" onclick="moveToPage(2)">Next</button>
-            <script>
-                var checkbox = document.querySelector("input[type=checkbox]");
-
-                checkbox.addEventListener('change', function() {
-                    if (this.checked) document.getElementById("next").classList.remove("disabled");
-                    else document.getElementById("next").classList.add("disabled");
-                });
-            </script>
-        </div>
+        <div id="appMain" class="padded_div"></div>
     </div>
     <script>
         function setInnerHTML(elm, html) {
@@ -110,7 +69,7 @@
                         </div>
                         <div class="col s8">
                             <br>
-                            <ul style="text-align: center; list-style-position: inside;" class="browser-default">
+                            <ul style="text-align: left; margin-left: 5%" class="browser-default">
                                 <li>This is not a replacement for doctors.</li>
                                 <li>This app may not be accurate.</li>
                                 <li>Please accurately enter your symptoms.</li>
@@ -212,51 +171,51 @@
                             <div id="overweight">
                                 <span>I am overweight</span>
                                 <br>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="overweight1" name="overweight" type="radio" onclick="changeData('overweight', 'Yes')" />
-                                    <span>Yes</span>
+                                    <span style="padding-left: 24px;">Yes</span>
                                 </label>
-                                <label style="margin-right: 1.5%">
-                                    <input id="overweight2" name="overweight" type="radio" onclick="changeData('overweight', 'No')"  style="margin-right: 0" />
-                                    <span style="margin-left: 0">No</span>
+                                <label style="margin-right: 2%">
+                                    <input id="overweight2" name="overweight" type="radio" onclick="changeData('overweight', 'No')" />
+                                    <span style="padding-left: 24px;">No</span>
                                 </label>
                                 <label>
                                     <input id="overweight3" name="overweight" type="radio" onclick="changeData('overweight', 'Unknown')" />
-                                    <span>I don't know</span>
+                                    <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
                             <br>
                             <div id="smoking">
                                 <span>I smoke cigarettes</span>
                                 <br>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="cigarettes1" name="cigarettes" type="radio" onclick="changeData('cigarettes', 'Yes')" />
-                                    <span>Yes</span>
+                                    <span style="padding-left: 24px;">Yes</span>
                                 </label>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="cigarettes2" name="cigarettes" type="radio" onclick="changeData('cigarettes', 'No')" />
-                                    <span>No</span>
+                                    <span style="padding-left: 24px;">No</span>
                                 </label>
                                 <label>
                                     <input id="cigarettes3" name="cigarettes" type="radio" onclick="changeData('cigarettes', 'Unknown')" />
-                                    <span>I don't know</span>
+                                    <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
                             <br>
                             <div id="injury">
                                 <span>I have been recently injured.</span>
                                 <br>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="injury1" name="injury" type="radio" onclick="changeData('injury', 'Yes')" />
-                                    <span>Yes</span>
+                                    <span style="padding-left: 24px;">Yes</span>
                                 </label>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="injury2" name="injury" type="radio" onclick="changeData('injury', 'No')" />
-                                    <span>No</span>
+                                    <span style="padding-left: 24px;">No</span>
                                 </label>
                                 <label>
                                     <input id="injury3" name="injury" type="radio" onclick="changeData('injury', 'Unknown')" />
-                                    <span>I don't know</span>
+                                    <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
                             <br>
@@ -264,51 +223,51 @@
                                 <span>I have high cholesterol.</span>
                                 <br>
                                 <br>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="cholesterol1" name="cholesterol" type="radio" onclick="changeData('cholesterol', 'Yes')" />
-                                    <span>Yes</span>
+                                    <span style="padding-left: 24px;">Yes</span>
                                 </label>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="cholesterol2" name="cholesterol" type="radio" onclick="changeData('cholesterol', 'No')" />
-                                    <span>No</span>
+                                    <span style="padding-left: 24px;">No</span>
                                 </label>
                                 <label>
                                     <input id="cholesterol3" name="cholesterol" type="radio" onclick="changeData('cholesterol', 'Unknown')" />
-                                    <span>I don't know</span>
+                                    <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
                             <br>
                             <div id="hypertension">
                                 <span>I have hypertension</span>
                                 <br>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="hypertension1" name="hypertension" type="radio" onclick="changeData('hypertension', 'Yes')" />
-                                    <span>Yes</span>
+                                    <span style="padding-left: 24px;">Yes</span>
                                 </label>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="hypertension2" name="hypertension" type="radio" onclick="changeData('hypertension', 'No')" />
-                                    <span>No</span>
+                                    <span style="padding-left: 24px;">No</span>
                                 </label>
                                 <label>
                                     <input id="hypertension3" name="hypertension" type="radio" onclick="changeData('hypertension', 'Unknown')" />
-                                    <span>I don't know</span>
+                                    <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
                             <br>
                             <div id="diabetes">
                                 <span>I have diabetes</span>
                                 <br>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="diabetes1" name="diabetes" type="radio" onclick="changeData('diabetes', 'Yes')" />
-                                    <span>Yes</span>
+                                    <span style="padding-left: 24px;">Yes</span>
                                 </label>
-                                <label style="margin-right: 1.5%">
+                                <label style="margin-right: 2%">
                                     <input id="diabetes2" name="diabetes" type="radio" onclick="changeData('diabetes', 'No')" />
-                                    <span>No</span>
+                                    <span style="padding-left: 24px;">No</span>
                                 </label>
                                 <label>
                                     <input id="diabetes3" name="diabetes" type="radio" onclick="changeData('diabetes', 'Unknown')" />
-                                    <span>I don't know</span>
+                                    <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
                         </div>
@@ -438,11 +397,11 @@
                             <p>${to_show}</p>
                             <label style="margin-right: 2%">
                                 <input id="${to_ask}1" name="${to_ask}" type="radio" onclick="addToUsersSymptoms('${to_ask}');"${yesSelected} />
-                                <span>Yes</span>
+                                <span style="padding-left: 24px;">Yes</span>
                             </label>
                             <label>
                                 <input id="${to_ask}2" name="${to_ask}" type="radio" onclick="removeFromUsersSymptoms('${to_ask}')"${noSelected} />
-                                <span>No</span>
+                                <span style="padding-left: 24px;">No</span>
                             </label>
                         </div>
                     `
@@ -627,6 +586,9 @@
                                 </p>
                                 <div id="${disease_to_show.name}"></div>
                             </div>
+                            <br>
+                            <hr>
+                            <br>
                         `;
                         var current_disease_symptoms = "";
                         for (let symptom_of_disease of diseases[disease_to_show.name]) {
@@ -646,6 +608,7 @@
             }
             globalPageNum = parseInt(pageNum)
         }
+        moveToPage(1)
     </script>
     <br>
 </body>
