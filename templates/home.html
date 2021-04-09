@@ -170,8 +170,7 @@
                         <div class="col s8">
                             <br>
                             <div id="overweight">
-                                <span>I am overweight</span>
-                                <br>
+                                <p>I am overweight</p>
                                 <label style="margin-right: 2%">
                                     <input id="overweight1" name="overweight" type="radio" onclick="changeData('overweight', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -187,8 +186,7 @@
                             </div>
                             <br>
                             <div id="smoking">
-                                <span>I smoke cigarettes</span>
-                                <br>
+                                <p>I smoke cigarettes</p>
                                 <label style="margin-right: 2%">
                                     <input id="cigarettes1" name="cigarettes" type="radio" onclick="changeData('cigarettes', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -204,8 +202,7 @@
                             </div>
                             <br>
                             <div id="injury">
-                                <span>I have been recently injured.</span>
-                                <br>
+                                <p>I have been recently injured.</p>
                                 <label style="margin-right: 2%">
                                     <input id="injury1" name="injury" type="radio" onclick="changeData('injury', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -221,9 +218,7 @@
                             </div>
                             <br>
                             <div id="cholesterol">
-                                <span>I have high cholesterol.</span>
-                                <br>
-                                <br>
+                                <p>I have high cholesterol.</p>
                                 <label style="margin-right: 2%">
                                     <input id="cholesterol1" name="cholesterol" type="radio" onclick="changeData('cholesterol', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -239,8 +234,7 @@
                             </div>
                             <br>
                             <div id="hypertension">
-                                <span>I have hypertension</span>
-                                <br>
+                                <p>I have hypertension</p>
                                 <label style="margin-right: 2%">
                                     <input id="hypertension1" name="hypertension" type="radio" onclick="changeData('hypertension', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -256,8 +250,7 @@
                             </div>
                             <br>
                             <div id="diabetes">
-                                <span>I have diabetes</span>
-                                <br>
+                                <p>I have diabetes</p>
                                 <label style="margin-right: 2%">
                                     <input id="diabetes1" name="diabetes" type="radio" onclick="changeData('diabetes', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -581,13 +574,13 @@
                 } else { 
                     for (let disease_to_show of diseases_to_show) {
                         document.getElementById("show_diseases").innerHTML+=`
-                            <div>
+                            <div class="outside">
                                 <h5 style="text-size: 0.3vw; display: inline-block; vertical-align: middle; text-align: left;">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
                                 <p style="display: inline-block; vertical-align: top; text-align: right;">
                                     <span>${disease_to_show.possibility}%</span>
                                     <progress value="${disease_to_show.possibility}" max="100">${disease_to_show.possibility}%</progress>
                                 </p>
-                                <div id="${disease_to_show.name}"></div>
+                                <div class="inside" id="${disease_to_show.name}"></div>
                             </div>
                             <br>
                             <hr>

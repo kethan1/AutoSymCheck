@@ -144,7 +144,6 @@ globalThis.Symptoms = [
     "Haemorrhage",
     "Hallucinations auditory",
     "Hallucinations visual",
-    "Has religious belief",
     "Headache",
     "Heartburn",
     "Heavy feeling",
