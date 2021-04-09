@@ -4,6 +4,12 @@ html {
     --background-color: white;
     --not-current-screen: lightgray;
     --current-screen: black;
+    --padding-of-side: 0%;
+    --padding-bottom: 5%;
+    --margin-left: 15%;
+    --margin-right: 15%;
+    --padding-left: 0%;
+    --padding-right: 0%;
 }
 
 html[data-theme="dark"] {
@@ -14,17 +20,29 @@ html[data-theme="dark"] {
     --current-screen: white;
 }
 
+@media screen and (min-device-width: 0px) and (max-device-width: 600px) {
+    html {
+        --padding-of-side: 20%;
+        --padding-bottom: 3%;
+        --margin-left: 2%;
+        --margin-right: 2%;
+        --padding-left: 1%;
+        --padding-right: 1%;
+    }
+    
+}
+
 .not_current_screen {
     color: var(--not-current-screen);
-    border-left: 2px solid var(--not-current-screen);
-    padding-left: 3px;
+    border-left: 1.5px solid var(--not-current-screen);
+    padding-left: var(--padding-of-side);
     margin-top: 2px;
 }
 
 .current_screen {
     color: var(--current-screen);
-    border-left: 2px solid var(--current-screen);
-    padding-left: 3px;
+    border-left: 1.5px solid var(--current-screen);
+    padding-left: var(--padding-of-side);
     margin-top: 2px;
 }
 
@@ -41,16 +59,14 @@ input[type="checkbox"] {
     border: 2px solid var(--global-color-invert) !important;
 }
 
-#appMain {
-    border: 1.5px solid var(--global-color-invert); 
+.padded_div {
+    border: 1px solid var(--global-color-invert); 
     border-radius: 5px; 
     padding-top: 1%; 
-    padding-bottom: 5%; 
-    margin-left: 15%; 
-    margin-right: 15%; 
+    padding-bottom: var(--padding-bottom); 
+    margin-left: var(--margin-left); 
+    margin-right: var(--margin-right); 
+    padding-left: var(--padding-left);
+    padding-right: var(--padding-right);
     text-align: center;
 }
-
-
-
-

@@ -21,7 +21,7 @@
         <h3 style="text-align: center">Symptom Checker</h3>
         <br>
         <br>
-        <div id="appMain">
+        <div id="appMain" class="padded_div">
             <h5>Please Agree to These Terms and Conditions:</h5>
             <div class="row">
                 <div class="col s2">
@@ -43,17 +43,17 @@
                         <li>Do not use this to actually check symptoms for patients.</li>
                         <li>This is a demo, we are non-liable.</li>
                     </ul>
+                    <br>
+                    <br>
+                    <label style="text-align: center;">
+                        <input type="checkbox" class="filled-in" />
+                        <span>I understand</span>
+                    </label>
                 </div>
             </div>
             <br>
-            <label style="text-align: center;">
-                <input type="checkbox" class="filled-in" />
-                <span>I understand</span>
-            </label>
-            <br>
-            <br>
-            <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn">Back</button>
-            <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn disabled" onclick="moveToPage(2)">Next</button>
+            <button style="margin-right: 33%" id="back" class="waves-effect waves-light btn">Back</button>
+            <button style="margin-left: 33%" id="next" class="waves-effect waves-light btn disabled" onclick="moveToPage(2)">Next</button>
             <script>
                 var checkbox = document.querySelector("input[type=checkbox]");
 
@@ -115,17 +115,17 @@
                                 <li>This app may not be accurate.</li>
                                 <li>Please accurately enter your symptoms.</li>
                             </ul>
+                            <br>
+                            <br>
+                            <label style="text-align: center;">
+                                <input type="checkbox" class="filled-in" />
+                                <span>I understand</span>
+                            </label>
                         </div>
                     </div>
                     <br>
-                    <label style="text-align: center;">
-                        <input type="checkbox" class="filled-in" />
-                        <span>I understand</span>
-                    </label>
-                    <br>
-                    <br>
-                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn">Back</button>
-                    <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn disabled" onclick="moveToPage(2)">Next</button>
+                    <button style="margin-right: 33%" id="back" class="waves-effect waves-light btn">Back</button>
+                    <button style="margin-left: 33%" id="next" class="waves-effect waves-light btn disabled" onclick="moveToPage(2)">Next</button>
                     <script>
                         var checkbox = document.querySelector("input[type=checkbox]");
                         
@@ -173,8 +173,8 @@
                     </div>
                     <br>
                     <br>
-                    <button style="margin-right: 25%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(1)">Back</button>
-                    <button style="margin-left: 25%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(3)">Next</button>
+                    <button style="margin-right: 33%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(1)">Back</button>
+                    <button style="margin-left: 33%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(3)">Next</button>
                     <script>
                         document.getElementById("ageRange").value = age
                         document.getElementById("age_show").innerHTML = String.format('Age: {0}', age);
@@ -308,8 +308,8 @@
                     </div>
                     <br>
                     <br>
-                    <button style="margin-right: 25%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(2)">Back</button>
-                    <button style="margin-left: 25%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(4)" disabled>Next</button>
+                    <button style="margin-right: 33%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(2)">Back</button>
+                    <button style="margin-left: 33%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(4)" disabled>Next</button>
                     <script>
                         for (let each in otherInfo) {
                             if (otherInfo[each] !== null) {
@@ -372,8 +372,8 @@
                         </div>
                         <div id="askForAllSymptoms" class="col s8"></div>
                     </div>
-                    <button style="margin-right: 25%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(3)">Back</button>
-                    <button style="margin-left: 25%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(5)">Next</button>
+                    <button style="margin-right: 33%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(3)">Back</button>
+                    <button style="margin-left: 33%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(5)">Next</button>
                 `)
                 globalThis.addToUsersSymptoms = (symptom) => {
                     if (!(currentSymptoms.includes(symptom))) {
@@ -454,8 +454,8 @@
                     </div>   
                     <br>
                     <br>
-                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(4)">Back</button>
-                    <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(6)">Next</button>     
+                    <button style="margin-right: 33%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(4)">Back</button>
+                    <button style="margin-left: 33%" id="next" class="waves-effect waves-light btn" onclick="moveToPage(6)">Next</button>     
                     <script>
                         var divChips = document.getElementById("divChips");
                         function AddChip(symptom, bypass=false) {
@@ -580,8 +580,8 @@
                     </div>   
                     <br>
                     <br>
-                    <button style="margin-right: 30%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(5)">Back</button>
-                    <button style="margin-left: 30%" id="next" class="waves-effect waves-light btn" disabled>Next</button>    
+                    <button style="margin-right: 33%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(5)">Back</button>
+                    <button style="margin-left: 33%" id="next" class="waves-effect waves-light btn" disabled>Next</button>    
                 `)
                 document.getElementById("overweightToFill").innerHTML = otherInfo.overweight
                 document.getElementById("cigarettesToFill").innerHTML = otherInfo.cigarettes
