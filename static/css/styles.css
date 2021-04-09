@@ -24,7 +24,7 @@ html[data-theme="dark"] {
         --padding-of-side: 20%;
         --padding-bottom: 3%;
         --margin-left: 2%;
-        --margin-right: 5.5%;
+        --margin-right: 3%;
         --right-button-padding: 0%;
     }
     
@@ -65,4 +65,9 @@ input[type="checkbox"] {
     margin-left: var(--margin-left); 
     margin-right: var(--margin-right);
     text-align: center;
+}
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: top;
 }
