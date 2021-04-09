@@ -24,3 +24,4 @@
 
 ![ScreenShot](Symptom_Checker_Age:Gender-Info.png)
 
+![ScreenShot](Symptom_Checker_Current-Medical-Conditions.png)
