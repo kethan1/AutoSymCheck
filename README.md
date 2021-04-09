@@ -1,5 +1,7 @@
 # HealthHacks2021
 
+## AutoSymCheck
+
 - Project Goal - proactive identification of diseases through symptom assesment
 - Design
   - Collect Patient Info
@@ -14,8 +16,8 @@
     pip install -r requirements.txt
     python app.py
     ```
-    Depending on your install (MacOS and some Linux Distros), you may need to use `pip3` and `python3`.  
+    Depending on your install (MacOS and some Linux Distros), you may need to use `pip3` and `python3`
   - Deploying to Heroku
     - All the needed files are in this repo, look at: https://devcenter.heroku.com/articles/deploying-python
   - Production Demo
-    - You can access the website at this URL: https://healthhacks2021.herokuapp.com.
+    - Application can be accessed online at https://healthhacks2021.herokuapp.com
