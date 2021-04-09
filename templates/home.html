@@ -581,7 +581,7 @@
                     for (let disease_to_show of diseases_to_show) {
                         document.getElementById("show_diseases").innerHTML+=`
                             <div>
-                                <h5 style="text-size: 0.3vw; display: inline-block; vertical-align: middle; text-align: left; margin-right: 10%">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
+                                <h5 style="text-size: 0.3vw; display: inline-block; vertical-align: middle; text-align: left;">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
                                 <p style="display: inline-block; vertical-align: top; text-align: right;">
                                     <span>${disease_to_show.possibility}%</span>
                                     <progress value="${disease_to_show.possibility}" max="100">${disease_to_show.possibility}%</progress>
@@ -599,7 +599,9 @@
                                 else current_disease_symptoms+=`<span style="margin-left: 5px; margin-right: 5px;">${symptom_of_disease}</span>`
                             } else {
                                 if (symptom_of_disease['Treatment'] != "") {
-                                    current_disease_symptoms+=`<br><p>Treatments Include: ${symptom_of_disease['Treatment']}</p>`
+                                    if (symptom_of_disease['Treatment'] != null) {
+                                        current_disease_symptoms+=`<br><p>Treatments Include: ${symptom_of_disease['Treatment']}</p>`
+                                    }
                                 }
                             }
                         }
