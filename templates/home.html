@@ -561,7 +561,7 @@
                 document.getElementById("hypertensionToFill").innerHTML = otherInfo.hypertension
                 document.getElementById("diabetesToFill").innerHTML = otherInfo.diabetes
                 var user_symptoms = "";
-                for (let each_user_symptom of currentSymptoms) user_symptoms+=`<span>${each_user_symptom}</span>&#32;&#32;&#32;`;
+                for (let each_user_symptom of currentSymptoms) user_symptoms+=`<span>${each_user_symptom}</span>&#32;&#32;&#32;&#32;&#32;`;
                 document.getElementById("currentPatientSymptoms").innerHTML = user_symptoms;
 
                 if (diseases_to_show === undefined || diseases_to_show.length == 0) {
@@ -585,7 +585,7 @@
                         for (let symptom_of_disease of diseases[disease_to_show.name]) {
                             if (typeof(symptom_of_disease) !== "object") {
                                 if (currentSymptoms.includes(symptom_of_disease)) current_disease_symptoms=`<span style='border: 2px solid var(--global-color-invert); border-radius: 3px; padding-left: 1px; padding-right: 1px;'>${symptom_of_disease}</span>&#32;&#32;&#32;`+current_disease_symptoms
-                                else current_disease_symptoms+=`<span>${symptom_of_disease}</span>&#32;&#32;&#32;`
+                                else current_disease_symptoms+=`<span>${symptom_of_disease}</span>&#32;&#32;&#32;&#32;&#32;`
                             } else {
                                 if (symptom_of_disease['Treatment'] != "") {
                                     if (symptom_of_disease['Treatment'] != null) {
