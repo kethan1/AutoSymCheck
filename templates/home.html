@@ -138,11 +138,8 @@
                     <script>
                         document.getElementById("ageRange").value = age
                         document.getElementById("age_show").innerHTML = String.format('Age: {0}', age);
-                        if (gender == "male") {
-                            document.getElementById("maleGenderRadioButton").checked = true
-                        } else {
-                            document.getElementById("femaleGenderRadioButton").checked = true
-                        }
+                        if (gender == "male") document.getElementById("maleGenderRadioButton").checked = true
+                        else if (gender == "female") document.getElementById("femaleGenderRadioButton").checked = true
                         function showVal(newAge) {
                             document.getElementById("age_show").innerHTML = String.format('Age: {0}', newAge);
                             age = parseInt(newAge)
@@ -572,13 +569,13 @@
                 } else { 
                     for (let disease_to_show of diseases_to_show) {
                         document.getElementById("show_diseases").innerHTML+=`
-                            <div class="outside">
+                            <div>
                                 <h5 style="text-size: 0.3vw; display: inline-block; vertical-align: middle; text-align: left;">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
                                 <p style="display: inline-block; vertical-align: top; text-align: right;">
                                     <span>${disease_to_show.possibility}%</span>
                                     <progress value="${disease_to_show.possibility}" max="100">${disease_to_show.possibility}%</progress>
                                 </p>
-                                <div class="inside" id="${disease_to_show.name}"></div>
+                                <div id="${disease_to_show.name}"></div>
                             </div>
                             <br>
                             <hr>
