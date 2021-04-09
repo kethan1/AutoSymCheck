@@ -1,20 +1,21 @@
 # HealthHacks2021
 
- - Project Goal - proactive identification of diseases through symptom assesment
- - Design
-   - Collect Patient Info
-   - Derive Medical Conditions from Patient Info
-   - Collect Possible Symptoms
-   - Predict Possible Diseases
- - Development Process 
-   - Built Using Python for Server Side, and HTML, CSS, and Javascript for Client Side
+- Project Goal - proactive identification of diseases through symptom assesment
+- Design
+  - Collect Patient Info
+    - Derive Medical Conditions from Patient Info
+    - Collect Possible Symptoms
+    - Predict Possible Diseases
+- Development Process 
+  - Built Using Python for Server Side, and HTML, CSS, and Javascript for Client Side
 - Deployment
   - To run the app locally, make sure you have python installed. Then, clone this repo and run the below commands:
-
     ```
     pip install -r requirements.txt
     python app.py
     ```
     Depending on your install (MacOS and some Linux Distros), you may need to use `pip3` and `python3`.  
- - Production Demo
-     - You can access the website at this URL: https://healthhacks2021.herokuapp.com.
+  - Deploying to Heroku
+    - All the needed files are in this repo, look at: https://devcenter.heroku.com/articles/deploying-python
+  - Production Demo
+    - You can access the website at this URL: https://healthhacks2021.herokuapp.com.
