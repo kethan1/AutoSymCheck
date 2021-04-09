@@ -21,3 +21,5 @@
     - All the needed files are in this repo, look at: https://devcenter.heroku.com/articles/deploying-python
   - Production Demo
     - Application can be accessed online at https://healthhacks2021.herokuapp.com
+
+![ScreenShot](Symptom_Checker_Terms:Conditions.png)
