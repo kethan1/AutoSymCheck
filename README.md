@@ -24,7 +24,7 @@
 
 Sample Demo of Project:
 
-![ScreenShot](/static/images/Symptom_Checker_Terms:Conditions.png.png)
+![ScreenShot](/static/images/Symptom_Checker_Terms:Conditions.png)
 
 ![ScreenShot](/static/images/Symptom_Checker_Age:Gender-Info.png)
 
