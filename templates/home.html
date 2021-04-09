@@ -113,7 +113,7 @@
                         <div class="col s6">
                             <p id="age_show">Age: 18</p>
                             <p style="text-align: center; margin-left: 5%" class="range-field">
-                                <input type="range" id="ageRange" min="0" max="80" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+                                <input type="range" id="ageRange" min="0" max="100" oninput="showVal(this.value)" onchange="showVal(this.value)" />
                             </p>
                         </div>
                         <div class="col s4">
@@ -167,7 +167,7 @@
                         <div class="col s8">
                             <br>
                             <div id="overweight">
-                                <p>I am overweight</p>
+                                <p>Are you overweight?</p>
                                 <label style="margin-right: 2%">
                                     <input id="overweight1" name="overweight" type="radio" onclick="changeData('overweight', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -183,7 +183,7 @@
                             </div>
                             <br>
                             <div id="smoking">
-                                <p>I smoke cigarettes</p>
+                                <p>Do you smoke cigarettes?</p>
                                 <label style="margin-right: 2%">
                                     <input id="cigarettes1" name="cigarettes" type="radio" onclick="changeData('cigarettes', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -199,7 +199,7 @@
                             </div>
                             <br>
                             <div id="injury">
-                                <p>I have been recently injured.</p>
+                                <p>Have you been recently injured?</p>
                                 <label style="margin-right: 2%">
                                     <input id="injury1" name="injury" type="radio" onclick="changeData('injury', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -215,7 +215,7 @@
                             </div>
                             <br>
                             <div id="cholesterol">
-                                <p>I have high cholesterol.</p>
+                                <p>Do you have high cholesterol?</p>
                                 <label style="margin-right: 2%">
                                     <input id="cholesterol1" name="cholesterol" type="radio" onclick="changeData('cholesterol', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -231,7 +231,7 @@
                             </div>
                             <br>
                             <div id="hypertension">
-                                <p>I have hypertension</p>
+                                <p>Do you have hypertension (high blood pressure)?</p>
                                 <label style="margin-right: 2%">
                                     <input id="hypertension1" name="hypertension" type="radio" onclick="changeData('hypertension', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -247,7 +247,7 @@
                             </div>
                             <br>
                             <div id="diabetes">
-                                <p>I have diabetes</p>
+                                <p>Do you have diabetes?</p>
                                 <label style="margin-right: 2%">
                                     <input id="diabetes1" name="diabetes" type="radio" onclick="changeData('diabetes', 'Yes')" />
                                     <span style="padding-left: 24px;">Yes</span>
@@ -420,7 +420,7 @@
                                 <input style="color: var(--global-color-invert)" oninput="inputSearch()" id="symptomsList_search_bar" type="text">
                                 <label for="symptomsList_search_bar">Search Symptoms</label>
                             </div>
-                            <div id="symptomsList" style="height: 60vh; overflow-y: scroll; width: 30vw; text-align: center"></div>
+                            <div id="symptomsList" style="height: 60vh; overflow-y: scroll; width: 30vw; text-align: left"></div>
                         </div>
                         
                         <div class="col s5" id="divChips"></div>
@@ -522,27 +522,27 @@
                             </div>
                         </div>
                         <div class="col s8">
-                            <h5 style="text-size: 0.5vw">Patient Age: ${age}</h5>
-                            <h5 style="text-size: 0.5vw">Patient Gender: ${String.capitalizeFirstLetter(gender)}</h5>
-                            <p>Patient is overweight or obese</p>
+                            <p><b>Patient Age: ${age}</b></p>
+                            <p><b>Patient Gender: ${String.capitalizeFirstLetter(gender)}</b></p>
+                            <p><b>Patient is overweight or obese</b></p>
                             <p id="overweightToFill"></p>
                             <hr>
-                            <p>Patient smokes cigarettes</p>
+                            <p><b>Patient smokes cigarettes</b></p>
                             <p id="cigarettesToFill"></p>
                             <hr>
-                            <p>Patient has been recently injured</p>
+                            <p><b>Patient has been recently injured</b></p>
                             <p id="injuryToFill"></p>
                             <hr>
-                            <p>Patient has high cholesterol</p>
+                            <p><b>Patient has high cholesterol</b></p>
                             <p id="cholesterolToFill"></p>
                             <hr>
-                            <p>Patient has hypertension</p>
+                            <p><b>Patient has hypertension</b></p>
                             <p id="hypertensionToFill"></p>
                             <hr>
-                            <p>Patient has diabetes</p>
+                            <p><b>Patient has diabetes</b></p>
                             <p id="diabetesToFill"></p>
                             <hr>
-                            <p>Patient Symptoms</p>
+                            <p><b>Patient Symptoms</b></p>
                             <div id="currentPatientSymptoms"></div>
                             <hr>
                             <br>
@@ -561,7 +561,7 @@
                 document.getElementById("hypertensionToFill").innerHTML = otherInfo.hypertension
                 document.getElementById("diabetesToFill").innerHTML = otherInfo.diabetes
                 var user_symptoms = "";
-                for (let each_user_symptom of currentSymptoms) user_symptoms+=`<span>${each_user_symptom}</span>&#32;&#32;&#32;&#32;&#32;`;
+                for (let each_user_symptom of currentSymptoms) user_symptoms+=`<span>${each_user_symptom},</span>&#32;&#32;&#32;&#32;&#32;&#32;`;
                 document.getElementById("currentPatientSymptoms").innerHTML = user_symptoms;
 
                 if (diseases_to_show === undefined || diseases_to_show.length == 0) {
@@ -570,9 +570,9 @@
                     for (let disease_to_show of diseases_to_show) {
                         document.getElementById("show_diseases").innerHTML+=`
                             <div>
-                                <h5 style="text-size: 0.3vw; display: inline-block; vertical-align: middle; text-align: left;">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
+                                <h5 style="text-size: 0.3vw !important; display: inline-block; vertical-align: middle; text-align: left;">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
                                 <p style="display: inline-block; vertical-align: top; text-align: right;">
-                                    <span>${disease_to_show.possibility}%</span>
+                                    <span>${Math.round(disease_to_show.possibility)}%</span>
                                     <progress value="${disease_to_show.possibility}" max="100">${disease_to_show.possibility}%</progress>
                                 </p>
                                 <div style="text-align: center;" id="${disease_to_show.name}"></div>
@@ -585,7 +585,7 @@
                         for (let symptom_of_disease of diseases[disease_to_show.name]) {
                             if (typeof(symptom_of_disease) !== "object") {
                                 if (currentSymptoms.includes(symptom_of_disease)) current_disease_symptoms=`<span style='border: 2px solid var(--global-color-invert); border-radius: 3px; padding-left: 1px; padding-right: 1px;'>${symptom_of_disease}</span>&#32;&#32;&#32;`+current_disease_symptoms
-                                else current_disease_symptoms+=`<span>${symptom_of_disease}</span>&#32;&#32;&#32;&#32;&#32;`
+                                else current_disease_symptoms+=`<span>${symptom_of_disease}</span>,&#32;&#32;&#32;&#32;&#32;&#32;`
                             } else {
                                 if (symptom_of_disease['Treatment'] != "") {
                                     if (symptom_of_disease['Treatment'] != null) {
