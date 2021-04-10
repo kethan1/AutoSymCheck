@@ -31,3 +31,6 @@
     ![ScreenShot5](/static/images/Symptom_Checker_Possible_Symptoms.png)
     ![ScreenShot6](/static/images/Symptom_Checker_Searchbar_Usage.png)
     ![ScreenShot7](/static/images/Symptom_Checker_Disease_Report.png)
+- Feature Improvements
+  - Data Integration from Recognized sources
+  - Provide Recomendations Based on Personalized Data
