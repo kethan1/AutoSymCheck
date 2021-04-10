@@ -22,23 +22,16 @@
   - Production Demo
     - Application can be accessed online at https://healthhacks2021.herokuapp.com
 
-Sample Demo of Project:
+      Screenshots of Project:
 
-![ScreenShot](/static/images/Symptom_Checker_Terms:Conditions.png)
-
-![ScreenShot](/static/images/Symptom_Checker_Age:Gender-Info.png)
-
-![ScreenShot](/static/images/Symptom_Checker_Patient_Info.png)
-
-![ScreenShot](/static/images/Symptom_Checker_Current-Medical-Conditions.png)
-
-![ScreenShot](/static/images/Symptom_Checker_Possible-Symptoms.png)
-
-![ScreenShot](/static/images/Symptom_Checker_Symptom-Searchbar-Use.png)
-
-![ScreenShot](/static/images/Symptom_Checker_Symptom-Searchbar-Use.png)
-
-![ScreenShot](/static/images/Symptom_Checker_Diseases-Report.png)
+      ![ScreenShot1](/static/images/Symptom_Checker_Terms:Conditions.png)
+      ![ScreenShot2](/static/images/Symptom_Checker_Age:Gender-Info.png)
+      ![ScreenShot3](/static/images/Symptom_Checker_Patient_Info.png)
+      ![ScreenShot4](/static/images/Symptom_Checker_Current-Medical-Conditions.png)
+      ![ScreenShot5](/static/images/Symptom_Checker_Possible-Symptoms.png)
+      ![ScreenShot6](/static/images/Symptom_Checker_Symptom-Searchbar-Use.png)
+      ![ScreenShot7](/static/images/Symptom_Checker_Symptom-Searchbar-Use.png)
+      ![ScreenShot8](/static/images/Symptom_Checker_Diseases-Report.png)
 
 
 
