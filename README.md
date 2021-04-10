@@ -5,9 +5,9 @@
 - **Project Goal** - proactive identification of diseases through symptom assesment
 - **Design**
   - Collect Patient Info
-    - Derive Medical Conditions from Patient Info
-    - Collect Possible Symptoms
-    - Predict Possible Diseases
+  - Derive Medical Conditions from Patient Info
+  - Collect Possible Symptoms
+  - Predict Possible Diseases
 - **Development Process**
   - Built Using Python for Server Side, and HTML, CSS, and Javascript for Client Side
 - **Deployment**
