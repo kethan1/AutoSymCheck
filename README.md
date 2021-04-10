@@ -25,7 +25,7 @@
       Screenshots of Project:
 
       ![ScreenShot1](/static/images/Symptom_Checker_Terms_and_Conditions.png)
-      ![ScreenShot2](/static/images/Symptoms_Checker_Age_Gender_Info.png)
+      ![ScreenShot2](/static/images/Symptom_Checker_Age_Gender_Info.png)
       ![ScreenShot3](/static/images/Symptom_Checker_Patient_Info.png)
       ![ScreenShot4](/static/images/Symptom_Checker_Current_Medical_Conditions.png)
       ![ScreenShot5](/static/images/Symptom_Checker_Possible_Symptoms.png)

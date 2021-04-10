@@ -61,8 +61,8 @@
                                 <ul>
                                     <li class="current_screen">Terms and Conditions</li>
                                     <li class="not_current_screen">Patient Info</li>
-                                    <li class="not_current_screen">Suggested Symptoms</li>
-                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Current Medical Conditions</li>
+                                    <li class="not_current_screen">Possible Symptoms</li>
                                     <li class="not_current_screen">Diseases</li>
                                 </ul>
                             </div>
@@ -70,10 +70,10 @@
                         <div class="col s8">
                             <br>
                             <ul style="text-align: left; margin-left: 5%" class="browser-default">
-                                <li>This is not a replacement for doctors.</li>
-                                <li>This app may not be accurate.</li>
-                                <li>Do not use this in a professional setting.</li>
-                                <li>This is a demo, do not really on this website.</li>
+                                <li>This is not a replacement for doctors</li>
+                                <li>This app may not be accurate</li>
+                                <li>Do not use this in a professional setting</li>
+                                <li>This is a demo, do not rely on this website</li>
                             </ul>
                             <br>
                             <br>
@@ -104,8 +104,8 @@
                                 <ul>
                                     <li class="not_current_screen">Terms and Conditions</li>
                                     <li class="current_screen">Patient Info</li>
-                                    <li class="not_current_screen">Suggested Symptoms</li>
-                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Current Medical Conditions</li>
+                                    <li class="not_current_screen">Possible Symptoms</li>
                                     <li class="not_current_screen">Diseases</li>
                                 </ul>
                             </div>
@@ -158,8 +158,8 @@
                                 <ul>
                                     <li class="not_current_screen">Terms and Conditions</li>
                                     <li class="current_screen">Patient Info</li>
-                                    <li class="not_current_screen">Suggested Symptoms</li>
-                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Current Medical Conditions</li>
+                                    <li class="not_current_screen">Possible Symptoms</li>
                                     <li class="not_current_screen">Diseases</li>
                                 </ul>
                             </div>
@@ -314,20 +314,23 @@
                     }
                 }
                 setInnerHTML(appMainDiv, `
-                    <h5>Suggested Symptoms</h5>
+                    <h5>Current Medical Symptoms Derived from Patient Info</h5>
                     <div style="text-align: center" class="row">
                         <div class="col s2">
                             <div>
                                 <ul>
                                     <li class="not_current_screen">Terms and Conditions</li>
                                     <li class="not_current_screen">Patient Info</li>
-                                    <li class="current_screen">Suggested Symptoms</li>
-                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="current_screen">Current Medical Conditions</li>
+                                    <li class="not_current_screen">Possible Symptoms</li>
                                     <li class="not_current_screen">Diseases</li>
                                 </ul>
                             </div>
                         </div>
-                        <div id="askForAllSymptoms" class="col s8"></div>
+                        <div class="col s8">
+                            <div id="askForAllSymptoms"></div>
+                        </div>
+
                     </div>
                     <button style="margin-right: 33%" id="back" class="waves-effect waves-light btn" onclick="moveToPage(3)">Back</button>
                     <button style="margin-left: var(--right-button-padding)" id="next" class="waves-effect waves-light btn" onclick="moveToPage(5)">Next</button>
@@ -401,15 +404,15 @@
                 }
             } else if (pageNum == 5) {
                 setInnerHTML(appMainDiv, `
-                    <h5>More Symptoms or Skip</h5>
+                    <h5>More Symptoms</h5>
                     <div style="text-align: center" class="row">
                         <div class="col s2">
                             <div>
                                 <ul>
                                     <li class="not_current_screen">Terms and Conditions</li>
                                     <li class="not_current_screen">Patient Info</li>
-                                    <li class="not_current_screen">Suggested Symptoms</li>
-                                    <li class="current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Current Medical Conditions</li>
+                                    <li class="current_screen">Possible Symptoms</li>
                                     <li class="not_current_screen">Diseases</li>
                                 </ul>
                             </div>
@@ -515,8 +518,8 @@
                                 <ul>
                                     <li class="not_current_screen">Terms and Conditions</li>
                                     <li class="not_current_screen">Patient Info</li>
-                                    <li class="not_current_screen">Suggested Symptoms</li>
-                                    <li class="not_current_screen">Symptoms</li>
+                                    <li class="not_current_screen">Current Medical Conditions</li>
+                                    <li class="not_current_screen">Possible Symptoms</li>
                                     <li class="current_screen">Diseases</li>
                                 </ul>
                             </div>
