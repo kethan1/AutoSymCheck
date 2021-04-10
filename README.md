@@ -33,4 +33,4 @@
     ![ScreenShot7](/static/images/Symptom_Checker_Disease_Report.png)
 - Feature Improvements
   - Data Integration from Recognized sources
-  - Provide Recomendations Based on Personalized Data
+  - Provide Recomendations Based on Personalized Details
