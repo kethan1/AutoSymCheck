@@ -165,7 +165,6 @@
                             </div>
                         </div>
                         <div class="col s8">
-                            <br>
                             <div id="overweight">
                                 <p>Are you overweight?</p>
                                 <label style="margin-right: 2%">
@@ -181,7 +180,6 @@
                                     <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
-                            <br>
                             <div id="smoking">
                                 <p>Do you smoke cigarettes?</p>
                                 <label style="margin-right: 2%">
@@ -197,7 +195,6 @@
                                     <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
-                            <br>
                             <div id="injury">
                                 <p>Have you been recently injured?</p>
                                 <label style="margin-right: 2%">
@@ -213,7 +210,6 @@
                                     <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
-                            <br>
                             <div id="cholesterol">
                                 <p>Do you have high cholesterol?</p>
                                 <label style="margin-right: 2%">
@@ -229,7 +225,6 @@
                                     <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
-                            <br>
                             <div id="hypertension">
                                 <p>Do you have hypertension (high blood pressure)?</p>
                                 <label style="margin-right: 2%">
@@ -245,7 +240,6 @@
                                     <span style="padding-left: 24px;">I don't know</span>
                                 </label>
                             </div>
-                            <br>
                             <div id="diabetes">
                                 <p>Do you have diabetes?</p>
                                 <label style="margin-right: 2%">
@@ -573,7 +567,7 @@
                     for (let disease_to_show of diseases_to_show) {
                         document.getElementById("show_diseases").innerHTML+=`
                             <div>
-                                <h5 style="text-size: 0.3vw !important; display: inline-block; vertical-align: middle; text-align: left;">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
+                                <h5 style="display: inline-block; vertical-align: middle; text-align: left;">${disease_to_show.name}<a style="color: var(--global-color-invert);" href="https://wikipedia.org/wiki/${disease_to_show.name}" target="_blank" rel="noopener noreferrer"><i class="material-icons">info</i></a></h5>
                                 <p style="display: inline-block; vertical-align: top; text-align: right;">
                                     <span>${Math.round(disease_to_show.possibility)}%</span>
                                     <progress value="${disease_to_show.possibility}" max="100">${disease_to_show.possibility}%</progress>
