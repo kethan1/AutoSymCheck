@@ -17,9 +17,9 @@
     python app.py
     ```
     Depending on your install (MacOS and some Linux Distros), you may need to use `pip3` and `python3`
-  - **Deploying to Heroku**
+  - Deploying to Heroku
     - All the needed files are in this repo, look at: https://devcenter.heroku.com/articles/deploying-python
-  - **Production Demo**
+  - Production Demo
     - Application can be accessed online at https://healthhacks2021.herokuapp.com
 
       Screenshots of Project:
