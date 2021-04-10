@@ -24,14 +24,13 @@
 
       Screenshots of Project:
 
-      ![ScreenShot1](/static/images/Symptom_Checker_Terms:Conditions.png)
-      ![ScreenShot2](/static/images/Symptom_Checker_Age:Gender-Info.png)
+      ![ScreenShot1](/static/images/Symptom_Checker_Terms_and_Conditions.png)
+      ![ScreenShot2](/static/images/Symptoms_Checker_Age_Gender_Info.png)
       ![ScreenShot3](/static/images/Symptom_Checker_Patient_Info.png)
-      ![ScreenShot4](/static/images/Symptom_Checker_Current-Medical-Conditions.png)
-      ![ScreenShot5](/static/images/Symptom_Checker_Possible-Symptoms.png)
-      ![ScreenShot6](/static/images/Symptom_Checker_Symptom-Searchbar-Use.png)
-      ![ScreenShot7](/static/images/Symptom_Checker_Symptom-Searchbar-Use.png)
-      ![ScreenShot8](/static/images/Symptom_Checker_Diseases-Report.png)
+      ![ScreenShot4](/static/images/Symptom_Checker_Current_Medical_Conditions.png)
+      ![ScreenShot5](/static/images/Symptom_Checker_Possible_Symptoms.png)
+      ![ScreenShot6](/static/images/Symptom_Checker_Searchbar_Usage.png)
+      ![ScreenShot7](/static/images/Symptom_Checker_Disease_Report.png)
 
 
 
