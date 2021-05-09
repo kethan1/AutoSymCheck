@@ -34,3 +34,5 @@
 - Feature Improvements
   - Data Integration from Recognized sources
   - Provide Recomendations Based on Personalized Details
+
+Created by [@srijon-mandal](https://github.com/srijon-mandal/) and [I](https://github.com/kethan1)
